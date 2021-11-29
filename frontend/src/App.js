@@ -1,11 +1,12 @@
 import React from "react";
-import Login from "./pages/Login";
+// import Login from "./pages/Login";
 import "./App.css";
+import Dashboard from "./Components/Dashboard";
 
 function App() {
   return (
     <>
-      <Login />
+      <Dashboard />
     </>
   );
 }
