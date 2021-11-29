@@ -20,13 +20,13 @@ export const mainListItems = (
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <ShoppingCartIcon />
+        <PeopleIcon />
       </ListItemIcon>
       <ListItemText primary="Miembros" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
-        <PeopleIcon />
+        <ShoppingCartIcon />
       </ListItemIcon>
       <ListItemText primary="Equipos" />
     </ListItem>
