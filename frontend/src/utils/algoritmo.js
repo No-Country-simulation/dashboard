@@ -35,6 +35,7 @@ async function getMembers() {
   let nightPython = [];
   let nightJava = [];
   let nightTs = [];
+  let nightCsharp = [];
 
   const res = await axios.get("http://localhost:5000/api/members");
   members.push(res.data.getAllMembers);
@@ -50,7 +51,7 @@ async function getMembers() {
   console.log(membersPython[0].length, "solo Python");
 
   membersJava.push(members[0].filter((member) => member.language === "Java"));
-  console.log(membersJava[0], "solo Java");
+  console.log(membersJava[0].length, "solo Java");
 
   membersTs.push(
     members[0].filter((member) => member.language === "Typescript")
@@ -99,10 +100,8 @@ async function getMembers() {
 
   //--------Filtrados de Java--------//
 
-  afternoonPython.push(
-    membersPython[0].filter((m) => m.availability === "Tarde")
-  );
-  console.log(afternoonPython[0].length, "Java Tarde");
+  afternoonJava.push(membersJava[0].filter((m) => m.availability === "Tarde"));
+  console.log(afternoonJava[0].length, "Java Tarde");
 
   morningJava.push(membersJava[0].filter((m) => m.availability === "Manana"));
   console.log(morningJava[0].length, "Java Mañana");
@@ -114,5 +113,19 @@ async function getMembers() {
 
   nightJava.push(membersJava[0].filter((m) => m.availability === "Noche"));
   console.log(nightJava[0].length, "Java Noche");
+
+  //--------Filtrados de Typescript--------//
+
+  afternoonTs.push(membersTs[0].filter((m) => m.availability === "Tarde"));
+  console.log(afternoonTs[0].length, "Typescript Tarde");
+
+  morningTs.push(membersTs[0].filter((m) => m.availability === "Manana"));
+  console.log(morningTs[0].length, "Typescript Mañana");
+
+  fullTimeTs.push(membersTs[0].filter((m) => m.availability === "Full-time"));
+  console.log(fullTimeTs[0].length, "Typescript Full-time");
+
+  nightTs.push(membersTs[0].filter((m) => m.availability === "Noche"));
+  console.log(nightTs[0].length, "Typescript Noche");
 }
 getMembers();
