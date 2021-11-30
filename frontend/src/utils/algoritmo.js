@@ -31,7 +31,10 @@ async function getMembers() {
   let afternoonCsharp = [];
   let afternoonPhp = [];
 
+  let nightJs = [];
   let nightPython = [];
+  let nightJava = [];
+  let nightTs = [];
 
   const res = await axios.get("http://localhost:5000/api/members");
   members.push(res.data.getAllMembers);
@@ -44,10 +47,10 @@ async function getMembers() {
   membersPython.push(
     members[0].filter((member) => member.language === "Python")
   );
-  console.log(membersPython[0], "solo Python");
+  console.log(membersPython[0].length, "solo Python");
 
   membersJava.push(members[0].filter((member) => member.language === "Java"));
-  console.log(membersJava[0].length, "solo Java");
+  console.log(membersJava[0], "solo Java");
 
   membersTs.push(
     members[0].filter((member) => member.language === "Typescript")
@@ -60,7 +63,21 @@ async function getMembers() {
   membersPhp.push(members[0].filter((member) => member.language === "PHP"));
   console.log(membersPhp[0].length, "solo PHP");
 
-  //------------------------------------------//
+  //--------Filtrados de Javascript--------//
+
+  afternoonJs.push(membersJs[0].filter((m) => m.availability === "Tarde"));
+  console.log(afternoonJs[0].length, "Javascript Tarde");
+
+  morningJs.push(membersJs[0].filter((m) => m.availability === "Manana"));
+  console.log(morningJs[0].length, "Javascript Mañana");
+
+  fullTimeJs.push(membersJs[0].filter((m) => m.availability === "Full-time"));
+  console.log(fullTimeJs[0].length, "Javascript Full-time");
+
+  nightJs.push(membersJs[0].filter((m) => m.availability === "Noche"));
+  console.log(nightJs[0].length, "Javascript Noche");
+
+  //--------Filtrados de Python--------//
 
   afternoonPython.push(
     membersPython[0].filter((m) => m.availability === "Tarde")
@@ -79,5 +96,23 @@ async function getMembers() {
 
   nightPython.push(membersPython[0].filter((m) => m.availability === "Noche"));
   console.log(nightPython[0].length, "Python Noche");
+
+  //--------Filtrados de Java--------//
+
+  afternoonPython.push(
+    membersPython[0].filter((m) => m.availability === "Tarde")
+  );
+  console.log(afternoonPython[0].length, "Java Tarde");
+
+  morningJava.push(membersJava[0].filter((m) => m.availability === "Manana"));
+  console.log(morningJava[0].length, "Java Mañana");
+
+  fullTimeJava.push(
+    membersJava[0].filter((m) => m.availability === "Full-time")
+  );
+  console.log(fullTimeJava[0].length, "Java Full-time");
+
+  nightJava.push(membersJava[0].filter((m) => m.availability === "Noche"));
+  console.log(nightJava[0].length, "Java Noche");
 }
 getMembers();
