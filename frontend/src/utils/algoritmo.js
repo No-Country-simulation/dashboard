@@ -31,19 +31,53 @@ async function getMembers() {
   let afternoonCsharp = [];
   let afternoonPhp = [];
 
+  let nightPython = [];
+
   const res = await axios.get("http://localhost:5000/api/members");
   members.push(res.data.getAllMembers);
 
   membersJs.push(
     members[0].filter((member) => member.language === "Javascript")
   );
-  membersPython.push(members.filter((member) => member.language === "Python"));
-  membersJava.push(members.filter((member) => member.language === "Java"));
-  membersTs.push(members.filter((member) => member.language === "Typescript"));
-  membersCsharp.push(members.filter((member) => member.language === "C#"));
-  membersPhp.push(members.filter((member) => member.language === "PHP"));
+  console.log(membersJs[0].length, "solo Javascript");
 
-  console.log(membersJs[0]);
+  membersPython.push(
+    members[0].filter((member) => member.language === "Python")
+  );
+  console.log(membersPython[0], "solo Python");
+
+  membersJava.push(members[0].filter((member) => member.language === "Java"));
+  console.log(membersJava[0].length, "solo Java");
+
+  membersTs.push(
+    members[0].filter((member) => member.language === "Typescript")
+  );
+  console.log(membersTs[0].length, "solo Typescript");
+
+  membersCsharp.push(members[0].filter((member) => member.language === "C#"));
+  console.log(membersCsharp[0].length, "solo C#");
+
+  membersPhp.push(members[0].filter((member) => member.language === "PHP"));
+  console.log(membersPhp[0].length, "solo PHP");
+
+  //------------------------------------------//
+
+  afternoonPython.push(
+    membersPython[0].filter((m) => m.availability === "Tarde")
+  );
+  console.log(afternoonPython[0].length, "Python Tarde");
+
+  morningPython.push(
+    membersPython[0].filter((m) => m.availability === "Manana")
+  );
+  console.log(morningPython[0].length, "Python Mañana");
+
+  fullTimePython.push(
+    membersPython[0].filter((m) => m.availability === "Full-time")
+  );
+  console.log(fullTimePython[0].length, "Python Full-time");
+
+  nightPython.push(membersPython[0].filter((m) => m.availability === "Noche"));
+  console.log(nightPython[0].length, "Python Noche");
 }
-
 getMembers();
