@@ -36,6 +36,7 @@ async function getMembers() {
   let nightJava = [];
   let nightTs = [];
   let nightCsharp = [];
+  let nightPhp = [];
 
   const res = await axios.get("http://localhost:5000/api/members");
   members.push(res.data.getAllMembers);
@@ -127,5 +128,39 @@ async function getMembers() {
 
   nightTs.push(membersTs[0].filter((m) => m.availability === "Noche"));
   console.log(nightTs[0].length, "Typescript Noche");
+
+  //--------Filtrados de C#--------//
+
+  afternoonCsharp.push(
+    membersCsharp[0].filter((m) => m.availability === "Tarde")
+  );
+  console.log(afternoonCsharp[0].length, "C# Tarde");
+
+  morningCsharp.push(
+    membersCsharp[0].filter((m) => m.availability === "Manana")
+  );
+  console.log(morningCsharp[0].length, "C# Mañana");
+
+  fullTimeCsharp.push(
+    membersCsharp[0].filter((m) => m.availability === "Full-time")
+  );
+  console.log(fullTimeCsharp[0].length, "C# Full-time");
+
+  nightCsharp.push(membersCsharp[0].filter((m) => m.availability === "Noche"));
+  console.log(nightCsharp[0].length, "C# Noche");
+
+  //--------Filtrados de PHP--------//
+
+  afternoonPhp.push(membersPhp[0].filter((m) => m.availability === "Tarde"));
+  console.log(afternoonPhp[0].length, "PHP Tarde");
+
+  morningPhp.push(membersPhp[0].filter((m) => m.availability === "Manana"));
+  console.log(morningPhp[0].length, "PHP Mañana");
+
+  fullTimePhp.push(membersPhp[0].filter((m) => m.availability === "Full-time"));
+  console.log(fullTimePhp[0].length, "PHP Full-time");
+
+  nightPhp.push(membersPhp[0].filter((m) => m.availability === "Noche"));
+  console.log(nightPhp[0].length, "PHP Noche");
 }
 getMembers();
