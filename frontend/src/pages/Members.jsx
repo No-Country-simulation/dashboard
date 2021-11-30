@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import DataTable from "../Components/DataTable";
 
 export const Members = () => {
   // const [member, setMember] = useState("");
@@ -11,5 +12,10 @@ export const Members = () => {
   useEffect(() => {
     getMembers();
   }, []);
-  return <div></div>;
+  return (
+    <div>
+      <h1>Members</h1>
+      <DataTable />
+    </div>
+  );
 };
