@@ -1,21 +1,21 @@
-import React, { useEffect } from "react";
-import axios from "axios";
-import DataTable from "../Components/DataTable";
+// import React, { useEffect } from "react";
+// import axios from "axios";
+// import DataTable from "../Components/DataTable";
 
-export const Members = () => {
-  const [members, setMembers] = useState("");
-  const getMembers = async () => {
-    const res = await axios.get("http://localhost:5000/api/members");
-    setMembers(res.data.getAllMembers);
-  };
+// // export const Members = () => {
+// //   // const [members, setMembers] = useState("");
+// //   const getMembers = async () => {
+// //     // const res = await axios.get("http://localhost:5000/api/members");
+// //     // setMembers(res.data.getAllMembers);
+// //   };
 
-  useEffect(() => {
-    getMembers();
-  }, []);
-  return (
-    <div>
-      <h1>Members</h1>
-      <DataTable />
-    </div>
-  );
-};
+//   useEffect(() => {
+//     getMembers();
+//   }, []);
+//   return (
+//     <div>
+//       <h1>Members</h1>
+//       <DataTable />
+//     </div>
+//   );
+// };
