@@ -4,9 +4,11 @@ import DataTable from "../Components/DataTable";
 
 export const Members = () => {
   const [members, setMembers] = useState([]);
+  const [loading, setLoading] = useState(true);
   const getMembers = async () => {
     const res = await axios.get("http://localhost:5000/api/members");
     setMembers(res.data.getAllMembers);
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -15,7 +17,7 @@ export const Members = () => {
   return (
     <div>
       <h1>Members</h1>
-      <DataTable members={members} />
+      <DataTable members={members} loading={loading} />
     </div>
   );
 };

@@ -6,7 +6,7 @@ const columns = [
   {
     field: "fullname",
     headerName: "Nombre y apellido",
-    width: 200,
+    width: 210,
     editable: true,
   },
   {
@@ -25,8 +25,14 @@ const columns = [
     headerName: "Stack",
     width: 160,
   },
+  {
+    field: "areas",
+    headerName: "Areas",
+    width: 160,
+  },
 ];
-export default function DataTable({ members }) {
+export default function DataTable({ members, loading }) {
+  console.log(members);
   let rows = members?.map((m) => {
     return {
       id: m._id,
@@ -34,20 +40,21 @@ export default function DataTable({ members }) {
       language: m.language,
       availability: m.availability,
       stack: m.stack,
+      areas: m.areas,
     };
   });
 
-  console.log(rows);
-
   return (
     <>
-      <div style={{ height: 500, width: "100%" }}>
+      <div style={{ height: 500, width: "100%", backgroundColor: "#F5F4F4" }}>
         <DataGrid
           id={Math.random()}
           rows={rows}
           columns={columns}
           pageSize={7}
-          disableSelectionOnClick
+          checkboxSelection
+          loading={loading}
+          rowsPerPageOptions={[7]}
         />
       </div>
     </>
@@ -56,4 +63,5 @@ export default function DataTable({ members }) {
 
 DataTable.propTypes = {
   members: PropTypes.array,
+  loading: PropTypes.bool,
 };
