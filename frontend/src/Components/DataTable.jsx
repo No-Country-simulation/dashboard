@@ -27,25 +27,30 @@ const columns = [
   },
 ];
 export default function DataTable({ members }) {
-  console.log(members);
-  let rows = members.map((m) => {
-    [
-      {
-        fullname: m.fullname,
-        language: m.language,
-        availability: m.availability,
-        stack: m.stack,
-      },
-    ];
+  
+  let rows = members?.map((m) => {
+    
+    return  {
+      id: m._id,
+      fullname: m.fullname,
+      language: m.language,
+      availability: m.availability,
+      stack: m.stack,
+    };
+    
   });
+  
+
+  console.log(rows);
 
   return (
     <>
       <div style={{ height: 400, width: "100%" }}>
         <DataGrid
+          id={Math.random()}
           rows={rows}
           columns={columns}
-          pageSize={5}
+          pageSize={10}
           rowsPerPageOptions={[10, 20, 30]}
           disableSelectionOnClick
         />
