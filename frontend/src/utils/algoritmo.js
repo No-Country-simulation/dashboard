@@ -53,6 +53,21 @@ async function getMembers() {
   let jsFullNo = [];
   let jsFullFu = [];
 
+  let pyFrontMa = [];
+  let pyFrontTa = [];
+  let pyFrontNo = [];
+  let pyFrontFu = [];
+
+  let pyBackMa = [];
+  let pyBackTa = [];
+  let pyBackNo = [];
+  let pyBackFu = [];
+
+  let pyFullMa = [];
+  let pyFullTa = [];
+  let pyFullNo = [];
+  let pyFullFu = [];
+
   const res = await axios.get("http://localhost:5000/api/members");
   members.push(res.data.getAllMembers);
 
@@ -219,6 +234,132 @@ async function getMembers() {
   fullTimePython.push(
     membersPython[0].filter((m) => m.availability === "Full-time")
   );
+
+  //--------Filtrados de Ordenamiento Python Frontend--------//
+
+  pyFrontMa.push(
+    membersPython[0].filter(
+      (m) =>
+        m.language === "Python" &&
+        m.areas === "Front-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(pyFrontMa[0].length, "pyFrontMañana");
+
+  pyFrontTa.push(
+    membersPython[0].filter(
+      (m) =>
+        m.language === "Python" &&
+        m.areas === "Front-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(pyFrontTa[0].length, "pyFrontTarde");
+
+  pyFrontNo.push(
+    membersPython[0].filter(
+      (m) =>
+        m.language === "Python" &&
+        m.areas === "Front-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(pyFrontNo[0].length, "pyFrontNoche");
+
+  pyFrontFu.push(
+    membersPython[0].filter(
+      (m) =>
+        m.language === "Python" &&
+        m.areas === "Front-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(pyFrontFu[0].length, "pyFrontFullTime");
+
+  //--------Filtrados de Ordenamiento Python Backend--------//
+
+  pyBackMa.push(
+    membersPython[0].filter(
+      (m) =>
+        m.language === "Python" &&
+        m.areas === "Back-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(pyBackMa[0].length, "pyBackMañana");
+
+  pyBackTa.push(
+    membersPython[0].filter(
+      (m) =>
+        m.language === "Python" &&
+        m.areas === "Back-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(pyBackTa[0].length, "pyBackTarde");
+
+  pyBackNo.push(
+    membersPython[0].filter(
+      (m) =>
+        m.language === "Python" &&
+        m.areas === "Back-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(pyBackNo[0].length, "pyBackNoche");
+
+  pyBackFu.push(
+    membersPython[0].filter(
+      (m) =>
+        m.language === "Python" &&
+        m.areas === "Back-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(pyBackFu[0].length, "pyBackFullTime");
+
+  //--------Filtrados de Ordenamiento Python Full-Stack--------//
+
+  pyFullMa.push(
+    membersPython[0].filter(
+      (m) =>
+        m.language === "Python" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(pyFullMa[0].length, "pyFullMañana");
+
+  pyFullTa.push(
+    membersPython[0].filter(
+      (m) =>
+        m.language === "Python" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(pyFullTa[0].length, "pyFullTarde");
+
+  pyFullNo.push(
+    membersPython[0].filter(
+      (m) =>
+        m.language === "Python" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(pyFullNo[0].length, "pyFullNoche");
+
+  pyFullFu.push(
+    membersPython[0].filter(
+      (m) =>
+        m.language === "Python" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(pyFullFu[0].length, "pyFullFullTime");
 
   //--------Filtrados de Java--------//
 
