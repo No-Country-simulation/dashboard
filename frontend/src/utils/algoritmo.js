@@ -48,6 +48,11 @@ async function getMembers() {
   let jsBackNo = [];
   let jsBackFu = [];
 
+  let jsFullMa = [];
+  let jsFullTa = [];
+  let jsFullNo = [];
+  let jsFullFu = [];
+
   const res = await axios.get("http://localhost:5000/api/members");
   members.push(res.data.getAllMembers);
 
@@ -159,6 +164,48 @@ async function getMembers() {
     )
   );
   console.log(jsBackFu[0].length, "jsBackFullTime");
+
+  //--------Filtrados de Ordenamiento Javascript Full-Stack--------//
+
+  jsFullMa.push(
+    membersJs[0].filter(
+      (m) =>
+        m.language === "Javascript" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(jsFullMa[0].length, "jsFullMañana");
+
+  jsFullTa.push(
+    membersJs[0].filter(
+      (m) =>
+        m.language === "Javascript" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(jsFullTa[0].length, "jsFullTarde");
+
+  jsFullNo.push(
+    membersJs[0].filter(
+      (m) =>
+        m.language === "Javascript" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(jsFullNo[0].length, "jsFullNoche");
+
+  jsFullFu.push(
+    membersJs[0].filter(
+      (m) =>
+        m.language === "Javascript" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(jsFullFu[0].length, "jsFullFullTime");
 
   //--------Filtrados de Python--------//
 
