@@ -38,129 +38,126 @@ async function getMembers() {
   let nightCsharp = [];
   let nightPhp = [];
 
+  let jsFrontMa = [];
+  let jsFrontTa = [];
+  let jsFrontNo = [];
+  let jsFrontFu = [];
+
   const res = await axios.get("http://localhost:5000/api/members");
   members.push(res.data.getAllMembers);
 
   membersJs.push(
     members[0].filter((member) => member.language === "Javascript")
   );
-  console.log(membersJs[0].length, "solo Javascript");
 
   membersPython.push(
     members[0].filter((member) => member.language === "Python")
   );
-  console.log(membersPython[0].length, "solo Python");
 
   membersJava.push(members[0].filter((member) => member.language === "Java"));
-  console.log(membersJava[0].length, "solo Java");
 
   membersTs.push(
     members[0].filter((member) => member.language === "Typescript")
   );
-  console.log(membersTs[0].length, "solo Typescript");
 
   membersCsharp.push(members[0].filter((member) => member.language === "C#"));
-  console.log(membersCsharp[0].length, "solo C#");
 
   membersPhp.push(members[0].filter((member) => member.language === "PHP"));
-  console.log(membersPhp[0].length, "solo PHP");
 
   //--------Filtrados de Javascript--------//
 
-  afternoonJs.push(membersJs[0].filter((m) => m.availability === "Tarde"));
-  console.log(afternoonJs[0].length, "Javascript Tarde");
-
   morningJs.push(membersJs[0].filter((m) => m.availability === "Manana"));
-  console.log(morningJs[0].length, "Javascript Mañana");
-
-  fullTimeJs.push(membersJs[0].filter((m) => m.availability === "Full-time"));
-  console.log(fullTimeJs[0].length, "Javascript Full-time");
-
+  afternoonJs.push(membersJs[0].filter((m) => m.availability === "Tarde"));
   nightJs.push(membersJs[0].filter((m) => m.availability === "Noche"));
-  console.log(nightJs[0].length, "Javascript Noche");
+  fullTimeJs.push(membersJs[0].filter((m) => m.availability === "Full-time"));
+
+  jsFrontMa.push(
+    membersJs[0].filter(
+      (m) =>
+        m.language === "Javascript" &&
+        m.areas === "Front-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(jsFrontMa[0].length, "jsFrontMañana");
+
+  jsFrontTa.push(
+    membersJs[0].filter(
+      (m) =>
+        m.language === "Javascript" &&
+        m.areas === "Front-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(jsFrontTa[0].length, "jsFrontTarde");
+
+  jsFrontNo.push(
+    membersJs[0].filter(
+      (m) =>
+        m.language === "Javascript" &&
+        m.areas === "Front-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(jsFrontNo[0].length, "jsFrontNoche");
+
+  jsFrontFu.push(
+    membersJs[0].filter(
+      (m) =>
+        m.language === "Javascript" &&
+        m.areas === "Front-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(jsFrontFu[0].length, "jsFrontFullTime");
 
   //--------Filtrados de Python--------//
-
-  afternoonPython.push(
-    membersPython[0].filter((m) => m.availability === "Tarde")
-  );
-  console.log(afternoonPython[0].length, "Python Tarde");
 
   morningPython.push(
     membersPython[0].filter((m) => m.availability === "Manana")
   );
-  console.log(morningPython[0].length, "Python Mañana");
-
+  afternoonPython.push(
+    membersPython[0].filter((m) => m.availability === "Tarde")
+  );
+  nightPython.push(membersPython[0].filter((m) => m.availability === "Noche"));
   fullTimePython.push(
     membersPython[0].filter((m) => m.availability === "Full-time")
   );
-  console.log(fullTimePython[0].length, "Python Full-time");
-
-  nightPython.push(membersPython[0].filter((m) => m.availability === "Noche"));
-  console.log(nightPython[0].length, "Python Noche");
 
   //--------Filtrados de Java--------//
 
-  afternoonJava.push(membersJava[0].filter((m) => m.availability === "Tarde"));
-  console.log(afternoonJava[0].length, "Java Tarde");
-
   morningJava.push(membersJava[0].filter((m) => m.availability === "Manana"));
-  console.log(morningJava[0].length, "Java Mañana");
-
+  afternoonJava.push(membersJava[0].filter((m) => m.availability === "Tarde"));
+  nightJava.push(membersJava[0].filter((m) => m.availability === "Noche"));
   fullTimeJava.push(
     membersJava[0].filter((m) => m.availability === "Full-time")
   );
-  console.log(fullTimeJava[0].length, "Java Full-time");
-
-  nightJava.push(membersJava[0].filter((m) => m.availability === "Noche"));
-  console.log(nightJava[0].length, "Java Noche");
 
   //--------Filtrados de Typescript--------//
 
-  afternoonTs.push(membersTs[0].filter((m) => m.availability === "Tarde"));
-  console.log(afternoonTs[0].length, "Typescript Tarde");
-
   morningTs.push(membersTs[0].filter((m) => m.availability === "Manana"));
-  console.log(morningTs[0].length, "Typescript Mañana");
-
-  fullTimeTs.push(membersTs[0].filter((m) => m.availability === "Full-time"));
-  console.log(fullTimeTs[0].length, "Typescript Full-time");
-
+  afternoonTs.push(membersTs[0].filter((m) => m.availability === "Tarde"));
   nightTs.push(membersTs[0].filter((m) => m.availability === "Noche"));
-  console.log(nightTs[0].length, "Typescript Noche");
+  fullTimeTs.push(membersTs[0].filter((m) => m.availability === "Full-time"));
 
   //--------Filtrados de C#--------//
-
-  afternoonCsharp.push(
-    membersCsharp[0].filter((m) => m.availability === "Tarde")
-  );
-  console.log(afternoonCsharp[0].length, "C# Tarde");
 
   morningCsharp.push(
     membersCsharp[0].filter((m) => m.availability === "Manana")
   );
-  console.log(morningCsharp[0].length, "C# Mañana");
-
+  afternoonCsharp.push(
+    membersCsharp[0].filter((m) => m.availability === "Tarde")
+  );
+  nightCsharp.push(membersCsharp[0].filter((m) => m.availability === "Noche"));
   fullTimeCsharp.push(
     membersCsharp[0].filter((m) => m.availability === "Full-time")
   );
-  console.log(fullTimeCsharp[0].length, "C# Full-time");
-
-  nightCsharp.push(membersCsharp[0].filter((m) => m.availability === "Noche"));
-  console.log(nightCsharp[0].length, "C# Noche");
 
   //--------Filtrados de PHP--------//
 
-  afternoonPhp.push(membersPhp[0].filter((m) => m.availability === "Tarde"));
-  console.log(afternoonPhp[0].length, "PHP Tarde");
-
   morningPhp.push(membersPhp[0].filter((m) => m.availability === "Manana"));
-  console.log(morningPhp[0].length, "PHP Mañana");
-
-  fullTimePhp.push(membersPhp[0].filter((m) => m.availability === "Full-time"));
-  console.log(fullTimePhp[0].length, "PHP Full-time");
-
+  afternoonPhp.push(membersPhp[0].filter((m) => m.availability === "Tarde"));
   nightPhp.push(membersPhp[0].filter((m) => m.availability === "Noche"));
-  console.log(nightPhp[0].length, "PHP Noche");
+  fullTimePhp.push(membersPhp[0].filter((m) => m.availability === "Full-time"));
 }
 getMembers();
