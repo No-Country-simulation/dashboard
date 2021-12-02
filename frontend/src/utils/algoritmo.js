@@ -43,6 +43,11 @@ async function getMembers() {
   let jsFrontNo = [];
   let jsFrontFu = [];
 
+  let jsBackMa = [];
+  let jsBackTa = [];
+  let jsBackNo = [];
+  let jsBackFu = [];
+
   const res = await axios.get("http://localhost:5000/api/members");
   members.push(res.data.getAllMembers);
 
@@ -70,6 +75,8 @@ async function getMembers() {
   afternoonJs.push(membersJs[0].filter((m) => m.availability === "Tarde"));
   nightJs.push(membersJs[0].filter((m) => m.availability === "Noche"));
   fullTimeJs.push(membersJs[0].filter((m) => m.availability === "Full-time"));
+
+  //--------Filtrados de Ordenamiento Javascript Frontend--------//
 
   jsFrontMa.push(
     membersJs[0].filter(
@@ -110,6 +117,48 @@ async function getMembers() {
     )
   );
   console.log(jsFrontFu[0].length, "jsFrontFullTime");
+
+  //--------Filtrados de Ordenamiento Javascript Backend--------//
+
+  jsBackMa.push(
+    membersJs[0].filter(
+      (m) =>
+        m.language === "Javascript" &&
+        m.areas === "Back-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(jsBackMa[0].length, "jsBackMañana");
+
+  jsBackTa.push(
+    membersJs[0].filter(
+      (m) =>
+        m.language === "Javascript" &&
+        m.areas === "Back-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(jsBackTa[0].length, "jsBackTarde");
+
+  jsBackNo.push(
+    membersJs[0].filter(
+      (m) =>
+        m.language === "Javascript" &&
+        m.areas === "Back-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(jsBackNo[0].length, "jsBackNoche");
+
+  jsBackFu.push(
+    membersJs[0].filter(
+      (m) =>
+        m.language === "Javascript" &&
+        m.areas === "Back-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(jsBackFu[0].length, "jsBackFullTime");
 
   //--------Filtrados de Python--------//
 
