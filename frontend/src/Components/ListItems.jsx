@@ -21,13 +21,30 @@ export const mainListItems = (
       </NavLink>
     </ListItem>
     <ListItem button>
+      <NavLink exact to="/comunidad" className="nav-link">
+        <ListItemIcon>
+          <PeopleIcon />
+        </ListItemIcon>
+        <ListItemText primary="Comunidad" />
+      </NavLink>
+    </ListItem>
+    <ListItem button>
       <NavLink exact to="/members" className="nav-link">
         <ListItemIcon>
           <PeopleIcon />
         </ListItemIcon>
-        <ListItemText primary="Miembros" />
+        <ListItemText primary="Miembros sin Asignar" />
       </NavLink>
     </ListItem>
+    <ListItem button>
+      <NavLink exact to="/cohorte" className="nav-link">
+        <ListItemIcon>
+          <PeopleIcon />
+        </ListItemIcon>
+        <ListItemText primary="Cohorte 2(actual)" />
+      </NavLink>
+    </ListItem>
+    
     <ListItem button>
       <NavLink exact to="/teams" className="nav-link">
         <ListItemIcon>
@@ -40,7 +57,7 @@ export const mainListItems = (
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
-      <ListItemText primary="TL" />
+      <ListItemText primary="Team Leaders" />
     </ListItem>
     <ListItem button>
       <ListItemIcon>
