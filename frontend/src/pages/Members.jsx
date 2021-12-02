@@ -16,7 +16,7 @@ export const Members = () => {
   }, []);
   return (
     <div>
-      <h1>Members</h1>
+      <h1>Miembros sin Equipo</h1>
       <DataTable members={members} loading={loading} />
     </div>
   );

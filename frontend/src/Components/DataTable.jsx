@@ -27,7 +27,7 @@ const columns = [
   },
   {
     field: "areas",
-    headerName: "Areas",
+    headerName: "Area",
     width: 160,
   },
 ];
