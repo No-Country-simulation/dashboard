@@ -68,6 +68,21 @@ async function getMembers() {
   let pyFullNo = [];
   let pyFullFu = [];
 
+  let jvFrontMa = [];
+  let jvFrontTa = [];
+  let jvFrontNo = [];
+  let jvFrontFu = [];
+
+  let jvBackMa = [];
+  let jvBackTa = [];
+  let jvBackNo = [];
+  let jvBackFu = [];
+
+  let jvFullMa = [];
+  let jvFullTa = [];
+  let jvFullNo = [];
+  let jvFullFu = [];
+
   const res = await axios.get("http://localhost:5000/api/members");
   members.push(res.data.getAllMembers);
 
@@ -369,6 +384,132 @@ async function getMembers() {
   fullTimeJava.push(
     membersJava[0].filter((m) => m.availability === "Full-time")
   );
+
+  //--------Filtrados de Ordenamiento Java Frontend--------//
+
+  jvFrontMa.push(
+    membersJava[0].filter(
+      (m) =>
+        m.language === "Java" &&
+        m.areas === "Front-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(jvFrontMa[0].length, "jvFrontMañana");
+
+  jvFrontTa.push(
+    membersJava[0].filter(
+      (m) =>
+        m.language === "Java" &&
+        m.areas === "Front-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(jvFrontTa[0].length, "jvFrontTarde");
+
+  jvFrontNo.push(
+    membersJava[0].filter(
+      (m) =>
+        m.language === "Java" &&
+        m.areas === "Front-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(jvFrontNo[0].length, "jvFrontNoche");
+
+  jvFrontFu.push(
+    membersJava[0].filter(
+      (m) =>
+        m.language === "Java" &&
+        m.areas === "Front-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(jvFrontFu[0].length, "jvFrontFullTime");
+
+  //--------Filtrados de Ordenamiento Java Backend--------//
+
+  jvBackMa.push(
+    membersJava[0].filter(
+      (m) =>
+        m.language === "Java" &&
+        m.areas === "Back-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(jvBackMa[0].length, "jvBackMañana");
+
+  jvBackTa.push(
+    membersJava[0].filter(
+      (m) =>
+        m.language === "Java" &&
+        m.areas === "Back-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(jvBackTa[0].length, "jvBackTarde");
+
+  jvBackNo.push(
+    membersJava[0].filter(
+      (m) =>
+        m.language === "Java" &&
+        m.areas === "Back-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(jvBackNo[0].length, "jvBackNoche");
+
+  jvBackFu.push(
+    membersJava[0].filter(
+      (m) =>
+        m.language === "Java" &&
+        m.areas === "Back-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(jvBackFu[0].length, "jvBackFullTime");
+
+  //--------Filtrados de Ordenamiento Java Full-Stack--------//
+
+  jvFullMa.push(
+    membersJava[0].filter(
+      (m) =>
+        m.language === "Java" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(jvFullMa[0].length, "jvFullMañana");
+
+  jvFullTa.push(
+    membersJava[0].filter(
+      (m) =>
+        m.language === "Java" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(jvFullTa[0].length, "jvFullTarde");
+
+  jvFullNo.push(
+    membersJava[0].filter(
+      (m) =>
+        m.language === "Java" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(jvFullNo[0].length, "jvFullNoche");
+
+  jvFullFu.push(
+    membersJava[0].filter(
+      (m) =>
+        m.language === "Java" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(jvFullFu[0].length, "jvFullFullTime");
 
   //--------Filtrados de Typescript--------//
 
