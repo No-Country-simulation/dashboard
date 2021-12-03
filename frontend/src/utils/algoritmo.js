@@ -113,6 +113,21 @@ async function getMembers() {
   let CsharpFullNo = [];
   let CsharpFullFu = [];
 
+  let phpFrontMa = [];
+  let phpFrontTa = [];
+  let phpFrontNo = [];
+  let phpFrontFu = [];
+
+  let phpBackMa = [];
+  let phpBackTa = [];
+  let phpBackNo = [];
+  let phpBackFu = [];
+
+  let phpFullMa = [];
+  let phpFullTa = [];
+  let phpFullNo = [];
+  let phpFullFu = [];
+
   const res = await axios.get("http://localhost:5000/api/members");
   members.push(res.data.getAllMembers);
 
@@ -819,5 +834,131 @@ async function getMembers() {
   afternoonPhp.push(membersPhp[0].filter((m) => m.availability === "Tarde"));
   nightPhp.push(membersPhp[0].filter((m) => m.availability === "Noche"));
   fullTimePhp.push(membersPhp[0].filter((m) => m.availability === "Full-time"));
+
+  //--------Filtrados de Ordenamiento PHP Frontend--------//
+
+  phpFrontMa.push(
+    membersPhp[0].filter(
+      (m) =>
+        m.language === "PHP" &&
+        m.areas === "Front-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(phpFrontMa[0].length, "phpFrontMañana");
+
+  phpFrontTa.push(
+    membersPhp[0].filter(
+      (m) =>
+        m.language === "PHP" &&
+        m.areas === "Front-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(phpFrontTa[0].length, "phpFrontTarde");
+
+  phpFrontNo.push(
+    membersPhp[0].filter(
+      (m) =>
+        m.language === "PHP" &&
+        m.areas === "Front-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(phpFrontNo[0].length, "phpFrontNoche");
+
+  phpFrontFu.push(
+    membersPhp[0].filter(
+      (m) =>
+        m.language === "PHP" &&
+        m.areas === "Front-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(phpFrontFu[0].length, "phpFrontFullTime");
+
+  //--------Filtrados de Ordenamiento PHP Backend--------//
+
+  phpBackMa.push(
+    membersPhp[0].filter(
+      (m) =>
+        m.language === "PHP" &&
+        m.areas === "Back-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(phpBackMa[0].length, "phpBackMañana");
+
+  phpBackTa.push(
+    membersPhp[0].filter(
+      (m) =>
+        m.language === "PHP" &&
+        m.areas === "Back-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(phpBackTa[0].length, "phpBackTarde");
+
+  phpBackNo.push(
+    membersPhp[0].filter(
+      (m) =>
+        m.language === "PHP" &&
+        m.areas === "Back-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(phpBackNo[0].length, "phpBackNoche");
+
+  phpBackFu.push(
+    membersPhp[0].filter(
+      (m) =>
+        m.language === "PHP" &&
+        m.areas === "Back-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(phpBackFu[0].length, "phpBackFullTime");
+
+  //--------Filtrados de Ordenamiento PHP Full-Stack--------//
+
+  phpFullMa.push(
+    membersPhp[0].filter(
+      (m) =>
+        m.language === "PHP" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(phpFullMa[0].length, "phpFullMañana");
+
+  phpFullTa.push(
+    membersPhp[0].filter(
+      (m) =>
+        m.language === "PHP" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(phpFullTa[0].length, "phpFullTarde");
+
+  phpFullNo.push(
+    membersPhp[0].filter(
+      (m) =>
+        m.language === "PHP" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(phpFullNo[0].length, "phpFullNoche");
+
+  phpFullFu.push(
+    membersPhp[0].filter(
+      (m) =>
+        m.language === "PHP" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(phpFullFu[0].length, "phpFullFullTime");
 }
 getMembers();
