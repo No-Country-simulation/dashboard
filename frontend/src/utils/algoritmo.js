@@ -188,7 +188,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(jsFrontMa[0].length, "jsFrontMañana");
 
   jsFrontTa.push(
     membersJs[0].filter(
@@ -198,7 +197,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(jsFrontTa[0].length, "jsFrontTarde");
 
   jsFrontNo.push(
     membersJs[0].filter(
@@ -208,7 +206,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(jsFrontNo[0].length, "jsFrontNoche");
 
   jsFrontFu.push(
     membersJs[0].filter(
@@ -218,7 +215,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(jsFrontFu[0].length, "jsFrontFullTime");
 
   //--------Filtrados de Ordenamiento Javascript Backend--------//
 
@@ -230,7 +226,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(jsBackMa[0].length, "jsBackMañana");
 
   jsBackTa.push(
     membersJs[0].filter(
@@ -240,7 +235,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(jsBackTa[0].length, "jsBackTarde");
 
   jsBackNo.push(
     membersJs[0].filter(
@@ -250,7 +244,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(jsBackNo[0].length, "jsBackNoche");
 
   jsBackFu.push(
     membersJs[0].filter(
@@ -260,7 +253,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(jsBackFu[0].length, "jsBackFullTime");
 
   //--------Filtrados de Ordenamiento Javascript Full-Stack--------//
 
@@ -272,7 +264,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(jsFullMa[0].length, "jsFullMañana");
 
   jsFullTa.push(
     membersJs[0].filter(
@@ -282,7 +273,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(jsFullTa[0].length, "jsFullTarde");
 
   jsFullNo.push(
     membersJs[0].filter(
@@ -292,7 +282,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(jsFullNo[0].length, "jsFullNoche");
 
   jsFullFu.push(
     membersJs[0].filter(
@@ -302,7 +291,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(jsFullFu[0].length, "jsFullFullTime");
 
   //--------Filtrados de Python--------//
 
@@ -327,7 +315,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(pyFrontMa[0].length, "pyFrontMañana");
 
   pyFrontTa.push(
     membersPython[0].filter(
@@ -337,7 +324,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(pyFrontTa[0].length, "pyFrontTarde");
 
   pyFrontNo.push(
     membersPython[0].filter(
@@ -347,7 +333,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(pyFrontNo[0].length, "pyFrontNoche");
 
   pyFrontFu.push(
     membersPython[0].filter(
@@ -357,7 +342,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(pyFrontFu[0].length, "pyFrontFullTime");
 
   //--------Filtrados de Ordenamiento Python Backend--------//
 
@@ -369,7 +353,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(pyBackMa[0].length, "pyBackMañana");
 
   pyBackTa.push(
     membersPython[0].filter(
@@ -379,7 +362,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(pyBackTa[0].length, "pyBackTarde");
 
   pyBackNo.push(
     membersPython[0].filter(
@@ -389,7 +371,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(pyBackNo[0].length, "pyBackNoche");
 
   pyBackFu.push(
     membersPython[0].filter(
@@ -399,7 +380,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(pyBackFu[0].length, "pyBackFullTime");
 
   //--------Filtrados de Ordenamiento Python Full-Stack--------//
 
@@ -411,7 +391,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(pyFullMa[0].length, "pyFullMañana");
 
   pyFullTa.push(
     membersPython[0].filter(
@@ -421,7 +400,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(pyFullTa[0].length, "pyFullTarde");
 
   pyFullNo.push(
     membersPython[0].filter(
@@ -431,7 +409,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(pyFullNo[0].length, "pyFullNoche");
 
   pyFullFu.push(
     membersPython[0].filter(
@@ -441,7 +418,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(pyFullFu[0].length, "pyFullFullTime");
 
   //--------Filtrados de Java--------//
 
@@ -462,7 +438,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(jvFrontMa[0].length, "jvFrontMañana");
 
   jvFrontTa.push(
     membersJava[0].filter(
@@ -472,7 +447,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(jvFrontTa[0].length, "jvFrontTarde");
 
   jvFrontNo.push(
     membersJava[0].filter(
@@ -482,7 +456,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(jvFrontNo[0].length, "jvFrontNoche");
 
   jvFrontFu.push(
     membersJava[0].filter(
@@ -492,7 +465,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(jvFrontFu[0].length, "jvFrontFullTime");
 
   //--------Filtrados de Ordenamiento Java Backend--------//
 
@@ -504,7 +476,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(jvBackMa[0].length, "jvBackMañana");
 
   jvBackTa.push(
     membersJava[0].filter(
@@ -514,7 +485,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(jvBackTa[0].length, "jvBackTarde");
 
   jvBackNo.push(
     membersJava[0].filter(
@@ -524,7 +494,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(jvBackNo[0].length, "jvBackNoche");
 
   jvBackFu.push(
     membersJava[0].filter(
@@ -534,7 +503,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(jvBackFu[0].length, "jvBackFullTime");
 
   //--------Filtrados de Ordenamiento Java Full-Stack--------//
 
@@ -546,7 +514,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(jvFullMa[0].length, "jvFullMañana");
 
   jvFullTa.push(
     membersJava[0].filter(
@@ -556,7 +523,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(jvFullTa[0].length, "jvFullTarde");
 
   jvFullNo.push(
     membersJava[0].filter(
@@ -566,7 +532,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(jvFullNo[0].length, "jvFullNoche");
 
   jvFullFu.push(
     membersJava[0].filter(
@@ -576,7 +541,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(jvFullFu[0].length, "jvFullFullTime");
 
   //--------Filtrados de Typescript--------//
 
@@ -595,7 +559,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(tsFrontMa[0].length, "tsFrontMañana");
 
   tsFrontTa.push(
     membersTs[0].filter(
@@ -605,7 +568,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(tsFrontTa[0].length, "tsFrontTarde");
 
   tsFrontNo.push(
     membersTs[0].filter(
@@ -615,7 +577,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(tsFrontNo[0].length, "tsFrontNoche");
 
   tsFrontFu.push(
     membersTs[0].filter(
@@ -625,7 +586,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(tsFrontFu[0].length, "tsFrontFullTime");
 
   //--------Filtrados de Ordenamiento Typescript Backend--------//
 
@@ -637,7 +597,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(tsBackMa[0].length, "tsBackMañana");
 
   tsBackTa.push(
     membersTs[0].filter(
@@ -647,7 +606,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(tsBackTa[0].length, "tsBackTarde");
 
   tsBackNo.push(
     membersTs[0].filter(
@@ -657,7 +615,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(tsBackNo[0].length, "tsBackNoche");
 
   tsBackFu.push(
     membersTs[0].filter(
@@ -667,7 +624,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(tsBackFu[0].length, "tsBackFullTime");
 
   //--------Filtrados de Ordenamiento Typescript Full-Stack--------//
 
@@ -679,7 +635,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(tsFullMa[0].length, "tsFullMañana");
 
   tsFullTa.push(
     membersTs[0].filter(
@@ -689,7 +644,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(tsFullTa[0].length, "tsFullTarde");
 
   tsFullNo.push(
     membersTs[0].filter(
@@ -699,7 +653,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(tsFullNo[0].length, "tsFullNoche");
 
   tsFullFu.push(
     membersTs[0].filter(
@@ -709,7 +662,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(tsFullFu[0].length, "tsFullFullTime");
 
   //--------Filtrados de C#--------//
 
@@ -734,7 +686,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(CsharpFrontMa[0].length, "CsharpFrontMañana");
 
   CsharpFrontTa.push(
     membersCsharp[0].filter(
@@ -744,7 +695,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(CsharpFrontTa[0].length, "CsharpFrontTarde");
 
   CsharpFrontNo.push(
     membersCsharp[0].filter(
@@ -754,7 +704,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(CsharpFrontNo[0].length, "CsharpFrontNoche");
 
   CsharpFrontFu.push(
     membersCsharp[0].filter(
@@ -764,7 +713,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(CsharpFrontFu[0].length, "CsharpFrontFullTime");
 
   //--------Filtrados de Ordenamiento C# Backend--------//
 
@@ -776,7 +724,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(CsharpBackMa[0].length, "CsharpBackMañana");
 
   CsharpBackTa.push(
     membersCsharp[0].filter(
@@ -786,7 +733,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(CsharpBackTa[0].length, "CsharpBackTarde");
 
   CsharpBackNo.push(
     membersCsharp[0].filter(
@@ -796,7 +742,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(CsharpBackNo[0].length, "CsharpBackNoche");
 
   CsharpBackFu.push(
     membersCsharp[0].filter(
@@ -806,7 +751,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(CsharpBackFu[0].length, "CsharpBackFullTime");
 
   //--------Filtrados de Ordenamiento C# Full-Stack--------//
 
@@ -818,7 +762,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(CsharpFullMa[0].length, "CsharpFullMañana");
 
   CsharpFullTa.push(
     membersCsharp[0].filter(
@@ -828,7 +771,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(CsharpFullTa[0].length, "CsharpFullTarde");
 
   CsharpFullNo.push(
     membersCsharp[0].filter(
@@ -838,7 +780,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(CsharpFullNo[0].length, "CsharpFullNoche");
 
   CsharpFullFu.push(
     membersCsharp[0].filter(
@@ -848,7 +789,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(CsharpFullFu[0].length, "CsharpFullFullTime");
 
   //--------Filtrados de PHP--------//
 
@@ -867,7 +807,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(phpFrontMa[0].length, "phpFrontMañana");
 
   phpFrontTa.push(
     membersPhp[0].filter(
@@ -877,7 +816,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(phpFrontTa[0].length, "phpFrontTarde");
 
   phpFrontNo.push(
     membersPhp[0].filter(
@@ -887,7 +825,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(phpFrontNo[0].length, "phpFrontNoche");
 
   phpFrontFu.push(
     membersPhp[0].filter(
@@ -897,7 +834,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(phpFrontFu[0].length, "phpFrontFullTime");
 
   //--------Filtrados de Ordenamiento PHP Backend--------//
 
@@ -909,7 +845,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(phpBackMa[0].length, "phpBackMañana");
 
   phpBackTa.push(
     membersPhp[0].filter(
@@ -919,7 +854,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(phpBackTa[0].length, "phpBackTarde");
 
   phpBackNo.push(
     membersPhp[0].filter(
@@ -929,7 +863,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(phpBackNo[0].length, "phpBackNoche");
 
   phpBackFu.push(
     membersPhp[0].filter(
@@ -939,7 +872,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(phpBackFu[0].length, "phpBackFullTime");
 
   //--------Filtrados de Ordenamiento PHP Full-Stack--------//
 
@@ -951,7 +883,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(phpFullMa[0].length, "phpFullMañana");
 
   phpFullTa.push(
     membersPhp[0].filter(
@@ -961,7 +892,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(phpFullTa[0].length, "phpFullTarde");
 
   phpFullNo.push(
     membersPhp[0].filter(
@@ -971,7 +901,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(phpFullNo[0].length, "phpFullNoche");
 
   phpFullFu.push(
     membersPhp[0].filter(
@@ -981,7 +910,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(phpFullFu[0].length, "phpFullFullTime");
 
   //--------Filtrados de Ruby--------//
 
@@ -1002,7 +930,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(rubyFrontMa[0].length, "rubyFrontMañana");
 
   rubyFrontTa.push(
     membersRuby[0].filter(
@@ -1012,7 +939,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(rubyFrontTa[0].length, "rubyFrontTarde");
 
   rubyFrontNo.push(
     membersRuby[0].filter(
@@ -1022,7 +948,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(rubyFrontNo[0].length, "rubyFrontNoche");
 
   rubyFrontFu.push(
     membersRuby[0].filter(
@@ -1032,7 +957,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(rubyFrontFu[0].length, "rubyFrontFullTime");
 
   //--------Filtrados de Ordenamiento Ruby Backend--------//
 
@@ -1044,7 +968,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(rubyBackMa[0].length, "rubyBackMañana");
 
   rubyBackTa.push(
     membersRuby[0].filter(
@@ -1054,7 +977,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(rubyBackTa[0].length, "rubyBackTarde");
 
   rubyBackNo.push(
     membersRuby[0].filter(
@@ -1064,7 +986,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(rubyBackNo[0].length, "rubyBackNoche");
 
   rubyBackFu.push(
     membersRuby[0].filter(
@@ -1074,7 +995,6 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(rubyBackFu[0].length, "rubyBackFullTime");
 
   //--------Filtrados de Ordenamiento Ruby Full-Stack--------//
 
@@ -1086,7 +1006,6 @@ async function getMembers() {
         m.availability === "Manana"
     )
   );
-  console.log(rubyFullMa[0].length, "rubyFullMañana");
 
   rubyFullTa.push(
     membersRuby[0].filter(
@@ -1096,7 +1015,6 @@ async function getMembers() {
         m.availability === "Tarde"
     )
   );
-  console.log(rubyFullTa[0].length, "rubyFullTarde");
 
   rubyFullNo.push(
     membersRuby[0].filter(
@@ -1106,7 +1024,6 @@ async function getMembers() {
         m.availability === "Noche"
     )
   );
-  console.log(rubyFullNo[0].length, "rubyFullNoche");
 
   rubyFullFu.push(
     membersRuby[0].filter(
@@ -1116,6 +1033,5 @@ async function getMembers() {
         m.availability === "Full-time"
     )
   );
-  console.log(rubyFullFu[0].length, "rubyFullFullTime");
 }
 getMembers();
