@@ -9,6 +9,7 @@ async function getMembers() {
   let membersTs = [];
   let membersCsharp = [];
   let membersPhp = [];
+  let membersRuby = [];
 
   let fullTimeJs = [];
   let fullTimePython = [];
@@ -16,6 +17,7 @@ async function getMembers() {
   let fullTimeTs = [];
   let fullTimeCsharp = [];
   let fullTimePhp = [];
+  let fullTimeRuby = [];
 
   let morningJs = [];
   let morningPython = [];
@@ -23,6 +25,7 @@ async function getMembers() {
   let morningTs = [];
   let morningCsharp = [];
   let morningPhp = [];
+  let morningRuby = [];
 
   let afternoonJs = [];
   let afternoonPython = [];
@@ -30,6 +33,7 @@ async function getMembers() {
   let afternoonTs = [];
   let afternoonCsharp = [];
   let afternoonPhp = [];
+  let afternoonRuby = [];
 
   let nightJs = [];
   let nightPython = [];
@@ -37,6 +41,7 @@ async function getMembers() {
   let nightTs = [];
   let nightCsharp = [];
   let nightPhp = [];
+  let nightRuby = [];
 
   let jsFrontMa = [];
   let jsFrontTa = [];
@@ -128,6 +133,21 @@ async function getMembers() {
   let phpFullNo = [];
   let phpFullFu = [];
 
+  let rubyFrontMa = [];
+  let rubyFrontTa = [];
+  let rubyFrontNo = [];
+  let rubyFrontFu = [];
+
+  let rubyBackMa = [];
+  let rubyBackTa = [];
+  let rubyBackNo = [];
+  let rubyBackFu = [];
+
+  let rubyFullMa = [];
+  let rubyFullTa = [];
+  let rubyFullNo = [];
+  let rubyFullFu = [];
+
   const res = await axios.get("http://localhost:5000/api/members");
   members.push(res.data.getAllMembers);
 
@@ -148,6 +168,8 @@ async function getMembers() {
   membersCsharp.push(members[0].filter((member) => member.language === "C#"));
 
   membersPhp.push(members[0].filter((member) => member.language === "PHP"));
+
+  membersRuby.push(members[0].filter((member) => member.language === "Ruby"));
 
   //--------Filtrados de Javascript--------//
 
@@ -960,5 +982,140 @@ async function getMembers() {
     )
   );
   console.log(phpFullFu[0].length, "phpFullFullTime");
+
+  //--------Filtrados de Ruby--------//
+
+  morningRuby.push(membersRuby[0].filter((m) => m.availability === "Manana"));
+  afternoonRuby.push(membersRuby[0].filter((m) => m.availability === "Tarde"));
+  nightRuby.push(membersRuby[0].filter((m) => m.availability === "Noche"));
+  fullTimeRuby.push(
+    membersRuby[0].filter((m) => m.availability === "Full-time")
+  );
+
+  //--------Filtrados de Ordenamiento Ruby Frontend--------//
+
+  rubyFrontMa.push(
+    membersRuby[0].filter(
+      (m) =>
+        m.language === "Ruby" &&
+        m.areas === "Front-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(rubyFrontMa[0].length, "rubyFrontMañana");
+
+  rubyFrontTa.push(
+    membersRuby[0].filter(
+      (m) =>
+        m.language === "Ruby" &&
+        m.areas === "Front-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(rubyFrontTa[0].length, "rubyFrontTarde");
+
+  rubyFrontNo.push(
+    membersRuby[0].filter(
+      (m) =>
+        m.language === "Ruby" &&
+        m.areas === "Front-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(rubyFrontNo[0].length, "rubyFrontNoche");
+
+  rubyFrontFu.push(
+    membersRuby[0].filter(
+      (m) =>
+        m.language === "Ruby" &&
+        m.areas === "Front-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(rubyFrontFu[0].length, "rubyFrontFullTime");
+
+  //--------Filtrados de Ordenamiento Ruby Backend--------//
+
+  rubyBackMa.push(
+    membersRuby[0].filter(
+      (m) =>
+        m.language === "Ruby" &&
+        m.areas === "Back-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(rubyBackMa[0].length, "rubyBackMañana");
+
+  rubyBackTa.push(
+    membersRuby[0].filter(
+      (m) =>
+        m.language === "Ruby" &&
+        m.areas === "Back-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(rubyBackTa[0].length, "rubyBackTarde");
+
+  rubyBackNo.push(
+    membersRuby[0].filter(
+      (m) =>
+        m.language === "Ruby" &&
+        m.areas === "Back-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(rubyBackNo[0].length, "rubyBackNoche");
+
+  rubyBackFu.push(
+    membersRuby[0].filter(
+      (m) =>
+        m.language === "Ruby" &&
+        m.areas === "Back-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(rubyBackFu[0].length, "rubyBackFullTime");
+
+  //--------Filtrados de Ordenamiento Ruby Full-Stack--------//
+
+  rubyFullMa.push(
+    membersRuby[0].filter(
+      (m) =>
+        m.language === "Ruby" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(rubyFullMa[0].length, "rubyFullMañana");
+
+  rubyFullTa.push(
+    membersRuby[0].filter(
+      (m) =>
+        m.language === "Ruby" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(rubyFullTa[0].length, "rubyFullTarde");
+
+  rubyFullNo.push(
+    membersRuby[0].filter(
+      (m) =>
+        m.language === "Ruby" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(rubyFullNo[0].length, "rubyFullNoche");
+
+  rubyFullFu.push(
+    membersRuby[0].filter(
+      (m) =>
+        m.language === "Ruby" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(rubyFullFu[0].length, "rubyFullFullTime");
 }
 getMembers();
