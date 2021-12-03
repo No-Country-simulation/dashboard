@@ -83,6 +83,21 @@ async function getMembers() {
   let jvFullNo = [];
   let jvFullFu = [];
 
+  let tsFrontMa = [];
+  let tsFrontTa = [];
+  let tsFrontNo = [];
+  let tsFrontFu = [];
+
+  let tsBackMa = [];
+  let tsBackTa = [];
+  let tsBackNo = [];
+  let tsBackFu = [];
+
+  let tsFullMa = [];
+  let tsFullTa = [];
+  let tsFullNo = [];
+  let tsFullFu = [];
+
   const res = await axios.get("http://localhost:5000/api/members");
   members.push(res.data.getAllMembers);
 
@@ -517,6 +532,132 @@ async function getMembers() {
   afternoonTs.push(membersTs[0].filter((m) => m.availability === "Tarde"));
   nightTs.push(membersTs[0].filter((m) => m.availability === "Noche"));
   fullTimeTs.push(membersTs[0].filter((m) => m.availability === "Full-time"));
+
+  //--------Filtrados de Ordenamiento Typescript Frontend--------//
+
+  tsFrontMa.push(
+    membersTs[0].filter(
+      (m) =>
+        m.language === "Typescript" &&
+        m.areas === "Front-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(tsFrontMa[0].length, "tsFrontMañana");
+
+  tsFrontTa.push(
+    membersTs[0].filter(
+      (m) =>
+        m.language === "Typescript" &&
+        m.areas === "Front-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(tsFrontTa[0].length, "tsFrontTarde");
+
+  tsFrontNo.push(
+    membersTs[0].filter(
+      (m) =>
+        m.language === "Typescript" &&
+        m.areas === "Front-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(tsFrontNo[0].length, "tsFrontNoche");
+
+  tsFrontFu.push(
+    membersTs[0].filter(
+      (m) =>
+        m.language === "Typescript" &&
+        m.areas === "Front-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(tsFrontFu[0].length, "tsFrontFullTime");
+
+  //--------Filtrados de Ordenamiento Typescript Backend--------//
+
+  tsBackMa.push(
+    membersTs[0].filter(
+      (m) =>
+        m.language === "Typescript" &&
+        m.areas === "Back-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(tsBackMa[0].length, "tsBackMañana");
+
+  tsBackTa.push(
+    membersTs[0].filter(
+      (m) =>
+        m.language === "Typescript" &&
+        m.areas === "Back-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(tsBackTa[0].length, "tsBackTarde");
+
+  tsBackNo.push(
+    membersTs[0].filter(
+      (m) =>
+        m.language === "Typescript" &&
+        m.areas === "Back-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(tsBackNo[0].length, "tsBackNoche");
+
+  tsBackFu.push(
+    membersTs[0].filter(
+      (m) =>
+        m.language === "Typescript" &&
+        m.areas === "Back-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(tsBackFu[0].length, "tsBackFullTime");
+
+  //--------Filtrados de Ordenamiento Typescript Full-Stack--------//
+
+  tsFullMa.push(
+    membersTs[0].filter(
+      (m) =>
+        m.language === "Typescript" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(tsFullMa[0].length, "tsFullMañana");
+
+  tsFullTa.push(
+    membersTs[0].filter(
+      (m) =>
+        m.language === "Typescript" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(tsFullTa[0].length, "tsFullTarde");
+
+  tsFullNo.push(
+    membersTs[0].filter(
+      (m) =>
+        m.language === "Typescript" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(tsFullNo[0].length, "tsFullNoche");
+
+  tsFullFu.push(
+    membersTs[0].filter(
+      (m) =>
+        m.language === "Typescript" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(tsFullFu[0].length, "tsFullFullTime");
 
   //--------Filtrados de C#--------//
 
