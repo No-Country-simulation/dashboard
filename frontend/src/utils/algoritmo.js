@@ -98,6 +98,21 @@ async function getMembers() {
   let tsFullNo = [];
   let tsFullFu = [];
 
+  let CsharpFrontMa = [];
+  let CsharpFrontTa = [];
+  let CsharpFrontNo = [];
+  let CsharpFrontFu = [];
+
+  let CsharpBackMa = [];
+  let CsharpBackTa = [];
+  let CsharpBackNo = [];
+  let CsharpBackFu = [];
+
+  let CsharpFullMa = [];
+  let CsharpFullTa = [];
+  let CsharpFullNo = [];
+  let CsharpFullFu = [];
+
   const res = await axios.get("http://localhost:5000/api/members");
   members.push(res.data.getAllMembers);
 
@@ -671,6 +686,132 @@ async function getMembers() {
   fullTimeCsharp.push(
     membersCsharp[0].filter((m) => m.availability === "Full-time")
   );
+
+  //--------Filtrados de Ordenamiento C# Frontend--------//
+
+  CsharpFrontMa.push(
+    membersCsharp[0].filter(
+      (m) =>
+        m.language === "C#" &&
+        m.areas === "Front-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(CsharpFrontMa[0].length, "CsharpFrontMañana");
+
+  CsharpFrontTa.push(
+    membersCsharp[0].filter(
+      (m) =>
+        m.language === "C#" &&
+        m.areas === "Front-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(CsharpFrontTa[0].length, "CsharpFrontTarde");
+
+  CsharpFrontNo.push(
+    membersCsharp[0].filter(
+      (m) =>
+        m.language === "C#" &&
+        m.areas === "Front-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(CsharpFrontNo[0].length, "CsharpFrontNoche");
+
+  CsharpFrontFu.push(
+    membersCsharp[0].filter(
+      (m) =>
+        m.language === "C#" &&
+        m.areas === "Front-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(CsharpFrontFu[0].length, "CsharpFrontFullTime");
+
+  //--------Filtrados de Ordenamiento C# Backend--------//
+
+  CsharpBackMa.push(
+    membersCsharp[0].filter(
+      (m) =>
+        m.language === "C#" &&
+        m.areas === "Back-End" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(CsharpBackMa[0].length, "CsharpBackMañana");
+
+  CsharpBackTa.push(
+    membersCsharp[0].filter(
+      (m) =>
+        m.language === "C#" &&
+        m.areas === "Back-End" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(CsharpBackTa[0].length, "CsharpBackTarde");
+
+  CsharpBackNo.push(
+    membersCsharp[0].filter(
+      (m) =>
+        m.language === "C#" &&
+        m.areas === "Back-End" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(CsharpBackNo[0].length, "CsharpBackNoche");
+
+  CsharpBackFu.push(
+    membersCsharp[0].filter(
+      (m) =>
+        m.language === "C#" &&
+        m.areas === "Back-End" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(CsharpBackFu[0].length, "CsharpBackFullTime");
+
+  //--------Filtrados de Ordenamiento C# Full-Stack--------//
+
+  CsharpFullMa.push(
+    membersCsharp[0].filter(
+      (m) =>
+        m.language === "C#" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Manana"
+    )
+  );
+  console.log(CsharpFullMa[0].length, "CsharpFullMañana");
+
+  CsharpFullTa.push(
+    membersCsharp[0].filter(
+      (m) =>
+        m.language === "C#" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Tarde"
+    )
+  );
+  console.log(CsharpFullTa[0].length, "CsharpFullTarde");
+
+  CsharpFullNo.push(
+    membersCsharp[0].filter(
+      (m) =>
+        m.language === "C#" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Noche"
+    )
+  );
+  console.log(CsharpFullNo[0].length, "CsharpFullNoche");
+
+  CsharpFullFu.push(
+    membersCsharp[0].filter(
+      (m) =>
+        m.language === "C#" &&
+        m.areas === "Full-Stack" &&
+        m.availability === "Full-time"
+    )
+  );
+  console.log(CsharpFullFu[0].length, "CsharpFullFullTime");
 
   //--------Filtrados de PHP--------//
 
