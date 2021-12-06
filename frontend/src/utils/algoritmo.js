@@ -1,9 +1,9 @@
 const axios = require("axios");
 
 async function getMembers() {
-  let members = [];
+  let members = []; // Aca estan Todos los miembros
 
-  let membersJs = [];
+  let membersJs = []; // Miembros solo de Javascript
   let membersPython = [];
   let membersJava = [];
   let membersTs = [];
