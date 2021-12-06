@@ -24,11 +24,11 @@ export const AssignMembers = ({ selectId }) => {
     setTeamSelect(teamSelected.selected);
   };
 
-  const handleSubmit = () => {
-    axios.put(
-      `http://localhost:5000/api/teams/asignar/${teamSelect}`,
-      selectId
-    );
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    axios.put(`http://localhost:5000/api/teams/asignar/${teamSelect}`, {
+      members: selectId,
+    });
   };
 
   return (
