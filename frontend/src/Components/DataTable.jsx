@@ -45,7 +45,6 @@ export default function DataTable({ members, loading }) {
       areas: m.areas,
     };
   });
-  console.log(selectId);
   return (
     <>
       <AssignMembers selectId={selectId} />
