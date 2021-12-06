@@ -1,6 +1,7 @@
 import { DataGrid } from "@material-ui/data-grid";
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
+import { AssignMembers } from "./AssignMembers";
 
 const columns = [
   {
@@ -32,7 +33,8 @@ const columns = [
   },
 ];
 export default function DataTable({ members, loading }) {
-  console.log(members);
+  const [selectId, setSelectId] = useState([]);
+
   let rows = members?.map((m) => {
     return {
       id: m._id,
@@ -43,9 +45,10 @@ export default function DataTable({ members, loading }) {
       areas: m.areas,
     };
   });
-
+  console.log(selectId);
   return (
     <>
+      <AssignMembers selectId={selectId} />
       <div style={{ height: 500, width: "100%", backgroundColor: "#F5F4F4" }}>
         <DataGrid
           id={rows.id}
@@ -55,6 +58,7 @@ export default function DataTable({ members, loading }) {
           checkboxSelection
           loading={loading}
           rowsPerPageOptions={[7]}
+          onSelectionModelChange={(item) => setSelectId(item)}
         />
       </div>
     </>
