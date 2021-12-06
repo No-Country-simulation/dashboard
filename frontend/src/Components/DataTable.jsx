@@ -48,7 +48,7 @@ export default function DataTable({ members, loading }) {
     <>
       <div style={{ height: 500, width: "100%", backgroundColor: "#F5F4F4" }}>
         <DataGrid
-          id={Math.random()}
+          id={rows.id}
           rows={rows}
           columns={columns}
           pageSize={7}
