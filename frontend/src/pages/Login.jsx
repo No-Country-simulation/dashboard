@@ -64,10 +64,7 @@ export default function Login() {
   console.log(input);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post(
-      "https://nocountryback.herokuapp.com/api/login",
-      input
-    );
+    const res = await axios.post("http://localhost:5000/api/login", input);
     console.log(res.data);
 
     if (res.data) {

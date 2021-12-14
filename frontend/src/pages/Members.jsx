@@ -9,12 +9,9 @@ export const Members = () => {
 
   const getMembers = async () => {
     try {
-      const res = await axios.get(
-        "https://nocountryback.herokuapp.com/api/members",
-        {
-          headers: { token: `Bearer ${token}` },
-        }
-      );
+      const res = await axios.get("http://localhost:5000/api/members", {
+        headers: { token: `Bearer ${token}` },
+      });
       setMembers(res.data.getAllMembers);
       setLoading(false);
     } catch (error) {
