@@ -20,6 +20,10 @@ const useStyles = makeStyles((theme) =>
         },
       },
     },
+    content: {
+      margin: "5px",
+      padding: "5px",
+    },
   })
 );
 
@@ -38,7 +42,7 @@ export const CardTeams = ({ team }) => {
           }
         />
         {team?.members.map((member) => (
-          <CardContent key={member._id}>
+          <CardContent className={classes.content} key={member._id}>
             <span>{member.fullname}</span>
           </CardContent>
         ))}

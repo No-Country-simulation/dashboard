@@ -19,20 +19,20 @@ export const Teams = () => {
 
   useEffect(() => {
     getTeams();
-    console.log(teams);
   }, []);
+  console.log(teams);
   return (
     <div
-      stytle={{
-        paddingTop: "3rem",
+      style={{
+        paddingTop: "2rem",
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 16rem), 1fr))",
-        gridGap: "1rem",
+        gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 15rem), 1fr))",
+        gridGap: "5px",
         gridAutoRows: "17rem",
       }}
     >
       {teams?.map((team) => (
-        <CardTeams key={team.id} team={team} />
+        <CardTeams key={team._id} team={team} />
       ))}
     </div>
   );

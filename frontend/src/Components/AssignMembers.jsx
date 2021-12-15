@@ -54,7 +54,7 @@ export const AssignMembers = ({ selectId }) => {
             )
           )}
         </select>
-        <button onClick={handleSubmit}>Crear</button>
+        <button onClick={handleSubmit}>Agregar</button>
       </form>
     </div>
   );
