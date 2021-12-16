@@ -5,10 +5,18 @@ import DataTable from "../Components/DataTable";
 export const Members = () => {
   const [members, setMembers] = useState([]);
   const [loading, setLoading] = useState(true);
+  let token = localStorage.getItem("token") || "";
+
   const getMembers = async () => {
-    const res = await axios.get("http://localhost:5000/api/members");
-    setMembers(res.data.getAllMembers);
-    setLoading(false);
+    try {
+      const res = await axios.get("http://localhost:5000/api/members", {
+        headers: { token: `Bearer ${token}` },
+      });
+      setMembers(res.data.getAllMembers);
+      setLoading(false);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
 
