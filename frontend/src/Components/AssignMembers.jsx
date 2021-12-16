@@ -27,15 +27,17 @@ export const AssignMembers = ({ selectId }) => {
     setTeamSelect(teamSelected.selected);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    axios.put(
+    await axios.put(
       `http://localhost:5000/api/teams/asignar/${teamSelect}`,
       { members: selectId },
       {
         headers: { token: `Bearer ${token}` },
       }
     );
+    await axios.put(`http://localhost:5000/api/members/${selectId}`, { teamleader: true }, 
+      {  headers: { token: `Bearer ${token}` }});
   };
 
   return (

@@ -23,6 +23,7 @@ export const Members = () => {
   useEffect(() => {
     getMembers();
   }, []);
+  
   return (
     <div>
       <h1>Miembros sin Equipo</h1>

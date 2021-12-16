@@ -48,13 +48,15 @@ export default function DataTable({ members, loading }) {
       availability: m.availability,
       stack: m.stack,
       areas: m.areas,
-      cohort: m.cohort
+      cohort: m.cohort,
+      teamleader: m.teamleader
     };
-  });
+  }).filter((m) => m.teamleader === false);
   return (
     <>
       <AssignMembers selectId={selectId} />
       <div style={{ height: 500, width: "100%", backgroundColor: "#F5F4F4" }}>
+
         <DataGrid
           id={rows.id}
           rows={rows}
