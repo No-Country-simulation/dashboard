@@ -31,6 +31,11 @@ const columns = [
     headerName: "Area",
     width: 160,
   },
+  {
+    field: "cohort",
+    headerName: "cohort",
+    width: 160,
+  },
 ];
 export default function DataTable({ members, loading }) {
   const [selectId, setSelectId] = useState([]);
@@ -43,6 +48,7 @@ export default function DataTable({ members, loading }) {
       availability: m.availability,
       stack: m.stack,
       areas: m.areas,
+      cohort: m.cohort
     };
   });
   return (
