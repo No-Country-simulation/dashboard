@@ -36,8 +36,10 @@ export const AssignMembers = ({ selectId }) => {
         headers: { token: `Bearer ${token}` },
       }
     );
-    await axios.put(`http://localhost:5000/api/members/${selectId}`, { teamleader: true }, 
-      {  headers: { token: `Bearer ${token}` }});
+
+    await axios.put("http://localhost:5000/api/members", {
+      selectId: selectId,
+    });
   };
 
   return (

@@ -40,23 +40,24 @@ const columns = [
 export default function DataTable({ members, loading }) {
   const [selectId, setSelectId] = useState([]);
 
-  let rows = members?.map((m) => {
-    return {
-      id: m._id,
-      fullname: m.fullname,
-      language: m.language,
-      availability: m.availability,
-      stack: m.stack,
-      areas: m.areas,
-      cohort: m.cohort,
-      teamleader: m.teamleader
-    };
-  }).filter((m) => m.teamleader === false);
+  let rows = members
+    ?.map((m) => {
+      return {
+        id: m._id,
+        fullname: m.fullname,
+        language: m.language,
+        availability: m.availability,
+        stack: m.stack,
+        areas: m.areas,
+        cohort: m.cohort,
+        teamleader: m.teamleader,
+      };
+    })
+    .filter((m) => m.teamleader === false);
   return (
     <>
       <AssignMembers selectId={selectId} />
       <div style={{ height: 500, width: "100%", backgroundColor: "#F5F4F4" }}>
-
         <DataGrid
           id={rows.id}
           rows={rows}
