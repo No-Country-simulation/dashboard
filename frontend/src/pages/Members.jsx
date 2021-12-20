@@ -19,11 +19,10 @@ export const Members = () => {
     }
   };
 
-
   useEffect(() => {
     getMembers();
-  }, []);
-  
+  }, [members]);
+
   return (
     <div>
       <h1>Miembros sin Equipo</h1>

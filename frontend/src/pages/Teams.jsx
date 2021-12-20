@@ -20,15 +20,15 @@ export const Teams = () => {
   useEffect(() => {
     getTeams();
   }, []);
-  console.log(teams);
+
   return (
     <div
       style={{
-        paddingTop: "2rem",
+        paddingTop: "1rem",
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax(min(100%, 15rem), 1fr))",
+        gridTemplateColumns: "repeat(auto-fill, minmax( 13rem, 1fr))",
         gridGap: "5px",
-        gridAutoRows: "17rem",
+        gridAutoRows: "21rem",
       }}
     >
       {teams?.map((team) => (

@@ -1,12 +1,11 @@
 import React from "react";
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
-import Button from "@material-ui/core/Button";
 import PropTypes from "prop-types";
-import { Avatar, Box, CardHeader, IconButton } from "@material-ui/core";
-import MoreVertIcon from "@material-ui/icons/MoreVert";
+import { Avatar, Box, CardHeader } from "@material-ui/core";
+import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
+import Swal from "sweetalert2";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -21,39 +20,82 @@ const useStyles = makeStyles((theme) =>
       },
     },
     content: {
-      margin: "5px",
-      padding: "5px",
+      margin: "6px",
+      padding: "2px",
+    },
+    btn: {
+      margin: "0px",
+      padding: "0px",
+      cursor: "pointer",
+      backgroundColor: "white",
+      border: "none",
+      borderRadius: "3px",
+      marginLeft: "5px",
+    },
+    cardHeader: {
+      paddingTop: "6px",
+      paddingBottom: "3px",
     },
   })
 );
 
 export const CardTeams = ({ team }) => {
   const classes = useStyles();
+
+  const handleSubmit = () => {
+    Swal.fire({
+      title: "Desea eliminar el miembro?",
+      text: "¡No podrás revertir esto!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#d33",
+      cancelButtonColor: "#3085d6",
+      confirmButtonText: "Si, Eliminar!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        Swal.fire(
+          "Eliminado!",
+          "El miembor a sido eliminado del grupo.",
+          "success"
+        );
+      }
+    });
+  };
+
   return (
     <Box className={classes.root}>
       <Card>
         <CardHeader
-          avatar={<Avatar>{team.name.charAt(0)}</Avatar>}
+          avatar={<Avatar>{team.name.charAt(1)}</Avatar>}
           title={team.name}
-          action={
-            <IconButton>
-              <MoreVertIcon />
-            </IconButton>
-          }
+          className={classes.cardHeader}
         />
         {team?.members.map((member) => (
           <CardContent className={classes.content} key={member._id}>
-            <span>{member.fullname}</span>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+              }}
+            >
+              <div>{member.fullname} </div>
+              <div
+                style={{ display: "flex", justifyContent: "flex-end", flex: 1 }}
+              >
+                <button onClick={handleSubmit} className={classes.btn}>
+                  <DeleteOutlineOutlinedIcon
+                    style={{ fontSize: "20px", color: "#585858" }}
+                  />
+                </button>
+              </div>
+            </div>
           </CardContent>
         ))}
-
-        <CardActions>
-          <Button>Post</Button>
-        </CardActions>
       </Card>
     </Box>
   );
 };
+
 CardTeams.propTypes = {
-  team: PropTypes.array,
+  team: PropTypes.object,
 };

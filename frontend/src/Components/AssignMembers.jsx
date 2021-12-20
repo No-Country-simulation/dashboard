@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import PropTypes from "prop-types";
+import { Button } from "@material-ui/core";
+import Swal from "sweetalert2";
 
 export const AssignMembers = ({ selectId }) => {
   let token = localStorage.getItem("token") || "";
@@ -9,7 +11,7 @@ export const AssignMembers = ({ selectId }) => {
   const [teamSelect, setTeamSelect] = useState({
     selected: null,
   });
-  console.log(selectId);
+
   const getTeams = async () => {
     const res = await axios.get("http://localhost:5000/api/teams", {
       headers: { token: `Bearer ${token}` },
@@ -21,7 +23,6 @@ export const AssignMembers = ({ selectId }) => {
     getTeams();
   }, []);
 
-  console.log(teamSelect);
   const handleSelect = (e) => {
     let teamSelected = { selected: e.target.value };
     setTeamSelect(teamSelected.selected);
@@ -29,24 +30,43 @@ export const AssignMembers = ({ selectId }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await axios.put(
-      `http://localhost:5000/api/teams/asignar/${teamSelect}`,
-      { members: selectId },
-      {
-        headers: { token: `Bearer ${token}` },
-      }
-    );
+    try {
+      await axios.put(
+        `http://localhost:5000/api/teams/asignar/${teamSelect}`,
+        { members: selectId },
+        {
+          headers: { token: `Bearer ${token}` },
+        }
+      );
 
-    await axios.put("http://localhost:5000/api/members", {
-      selectId: selectId,
-    });
+      await axios.put("http://localhost:5000/api/members", {
+        selectId: selectId,
+      });
+      Swal.fire({
+        icon: "success",
+        title: "Miembos Asignados al grupo",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
-    <div style={{ padding: "20px" }}>
+    <div style={{ padding: "15px" }}>
       <form>
-        <label>Equipo</label>
-        <select value={teamSelect} onChange={handleSelect}>
+        <label style={{ fontSize: "20px" }}>Equipos</label>
+        <select
+          style={{
+            height: "36px",
+            borderRadius: "5px",
+            margin: "0px 5px 0px 5px",
+            fontSize: "14px",
+          }}
+          value={teamSelect}
+          onChange={handleSelect}
+        >
           <option value="">Seleccione un equipo</option>
           {teams?.map(
             (
@@ -58,7 +78,9 @@ export const AssignMembers = ({ selectId }) => {
             )
           )}
         </select>
-        <button onClick={handleSubmit}>Agregar</button>
+        <Button variant="contained" color="primary" onClick={handleSubmit}>
+          Agregar
+        </Button>
       </form>
     </div>
   );

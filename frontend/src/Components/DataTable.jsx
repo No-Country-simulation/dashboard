@@ -54,18 +54,19 @@ export default function DataTable({ members, loading }) {
       };
     })
     .filter((m) => m.teamleader === false);
+
   return (
     <>
       <AssignMembers selectId={selectId} />
-      <div style={{ height: 500, width: "100%", backgroundColor: "#F5F4F4" }}>
+      <div style={{ height: 550, width: "100%", backgroundColor: "#F5F4F4" }}>
         <DataGrid
           id={rows.id}
           rows={rows}
           columns={columns}
-          pageSize={7}
+          pageSize={8}
           checkboxSelection
           loading={loading}
-          rowsPerPageOptions={[7]}
+          rowsPerPageOptions={[8]}
           onSelectionModelChange={(item) => setSelectId(item)}
         />
       </div>
