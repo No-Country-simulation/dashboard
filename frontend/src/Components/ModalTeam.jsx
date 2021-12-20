@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Modal from "@material-ui/core/Modal";
 import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
+import axios from "axios";
 import { Button, TextField } from "@material-ui/core";
 
 const useStyles = makeStyles((theme) => ({
@@ -23,8 +24,14 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 export const ModalTeam = () => {
+  let token = localStorage.getItem("token") || "";
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
+  const [input, setInput] = useState({
+    name: "",
+    stack: "",
+    proyecto: "",
+  });
 
   const handleOpen = () => {
     setOpen(true);
@@ -33,6 +40,21 @@ export const ModalTeam = () => {
   const handleClose = () => {
     setOpen(false);
   };
+
+  const handleChange = (e) => {
+    setInput({
+      ...input,
+      [e.target.name]: e.target.value,
+    });
+  };
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const res = await axios.post("http://localhost:5000/api/teams", input, {
+      headers: { token: `Bearer ${token}` },
+    });
+    setInput(res.data);
+  };
+
   return (
     <div>
       <Button
@@ -58,27 +80,45 @@ export const ModalTeam = () => {
         <Fade in={open}>
           <div className={classes.paper}>
             <h2>Crear Equipo</h2>
-            <TextField label="Nombre" />
-            <br />
-            <TextField label="Stack" />
-            <br />
-            <TextField label="Proyecto" />
-            <br />
-            <Button
-              className={classes.button}
-              variant="contained"
-              color="primary"
-            >
-              Crear
-            </Button>
-            <Button
-              className={classes.button}
-              variant="contained"
-              color="secundary"
-              onClick={handleClose}
-            >
-              Cancelar
-            </Button>
+            <form onSubmit={handleSubmit}>
+              <TextField
+                label="Nombre"
+                value={input.name}
+                name="name"
+                onChange={handleChange}
+              />
+              <br />
+              <TextField
+                label="Stack"
+                value={input.stack}
+                name="stack"
+                onChange={handleChange}
+              />
+              <br />
+              <TextField
+                label="Proyecto"
+                value={input.proyecto}
+                name="proyecto"
+                onChange={handleChange}
+              />
+              <br />
+              <Button
+                className={classes.button}
+                variant="contained"
+                color="primary"
+                type="submit"
+              >
+                Crear
+              </Button>
+              <Button
+                className={classes.button}
+                variant="contained"
+                color="secundary"
+                onClick={handleClose}
+              >
+                Cancelar
+              </Button>
+            </form>
           </div>
         </Fade>
       </Modal>
