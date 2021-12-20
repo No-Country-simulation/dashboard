@@ -66,7 +66,7 @@ export const CardTeams = ({ team }) => {
     <Box className={classes.root}>
       <Card>
         <CardHeader
-          avatar={<Avatar>{team.name.charAt(1)}</Avatar>}
+          avatar={<Avatar>{team?.name?.charAt(1)}</Avatar>}
           title={team.name}
           className={classes.cardHeader}
         />

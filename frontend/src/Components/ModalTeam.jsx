@@ -30,7 +30,7 @@ export const ModalTeam = () => {
   const [input, setInput] = useState({
     name: "",
     stack: "",
-    proyecto: "",
+    project: "",
   });
 
   const handleOpen = () => {
@@ -47,12 +47,15 @@ export const ModalTeam = () => {
       [e.target.name]: e.target.value,
     });
   };
+  console.log(input);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await axios.post("http://localhost:5000/api/teams", input, {
       headers: { token: `Bearer ${token}` },
     });
-    setInput(res.data);
+    setInput({ name: "", stack: "", project: "" });
+    console.log(res.data.team);
+    setOpen(false);
   };
 
   return (
@@ -97,8 +100,8 @@ export const ModalTeam = () => {
               <br />
               <TextField
                 label="Proyecto"
-                value={input.proyecto}
-                name="proyecto"
+                value={input.project}
+                name="project"
                 onChange={handleChange}
               />
               <br />
@@ -113,7 +116,7 @@ export const ModalTeam = () => {
               <Button
                 className={classes.button}
                 variant="contained"
-                color="secundary"
+                color="primary"
                 onClick={handleClose}
               >
                 Cancelar

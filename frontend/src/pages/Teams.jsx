@@ -20,7 +20,7 @@ export const Teams = () => {
 
   useEffect(() => {
     getTeams();
-  }, []);
+  }, [teams]);
 
   return (
     <>
