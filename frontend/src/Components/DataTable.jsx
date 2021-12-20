@@ -53,7 +53,7 @@ export default function DataTable({ members, loading }) {
         teamleader: m.teamleader,
       };
     })
-    .filter((m) => m.teamleader === false);
+    .filter((m) => m.teamleader === false && m.cohort === 2);
 
   return (
     <>

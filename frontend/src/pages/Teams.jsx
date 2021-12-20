@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { CardTeams } from "../Components/CardTeams";
+import { ModalTeam } from "../Components/ModalTeam";
 
 export const Teams = () => {
   const [teams, setTeams] = useState([]);
@@ -22,18 +23,26 @@ export const Teams = () => {
   }, []);
 
   return (
-    <div
-      style={{
-        paddingTop: "1rem",
-        display: "grid",
-        gridTemplateColumns: "repeat(auto-fill, minmax( 13rem, 1fr))",
-        gridGap: "5px",
-        gridAutoRows: "21rem",
-      }}
-    >
-      {teams?.map((team) => (
-        <CardTeams key={team._id} team={team} />
-      ))}
-    </div>
+    <>
+      <div style={{ display: "flex", alignItems: "center" }}>
+        <h2 style={{ marginLeft: "20px", marginRight: "20px" }}>
+          Listado de Equipos
+        </h2>
+        <ModalTeam />
+      </div>
+      <div
+        style={{
+          paddingTop: "1rem",
+          display: "grid",
+          gridTemplateColumns: "repeat(auto-fill, minmax( 13rem, 1fr))",
+          gridGap: "5px",
+          gridAutoRows: "21rem",
+        }}
+      >
+        {teams?.map((team) => (
+          <CardTeams key={team._id} team={team} />
+        ))}
+      </div>
+    </>
   );
 };
