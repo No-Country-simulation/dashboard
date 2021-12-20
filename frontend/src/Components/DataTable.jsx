@@ -36,6 +36,11 @@ const columns = [
     headerName: "cohort",
     width: 160,
   },
+  {
+    field: "experience",
+    headerName: "experience",
+    width: 160,
+  },
 ];
 export default function DataTable({ members, loading }) {
   const [selectId, setSelectId] = useState([]);
@@ -51,9 +56,13 @@ export default function DataTable({ members, loading }) {
         areas: m.areas,
         cohort: m.cohort,
         teamleader: m.teamleader,
+        experience: m.experience,
       };
     })
-    .filter((m) => m.teamleader === false);
+    .filter(
+      (m) =>
+        m.teamleader === false && m.cohort === 2 && m.language === "Javascript"
+    );
 
   return (
     <>
