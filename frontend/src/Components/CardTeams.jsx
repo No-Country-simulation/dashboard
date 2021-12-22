@@ -79,7 +79,17 @@ export const CardTeams = ({ team }) => {
                 alignItems: "center",
               }}
             >
-              <div>{member.fullname} </div>
+              <div
+                style={{
+                  color:
+                    (member.areas === "Full-Stack" && "#158EFA") ||
+                    (member.areas === "Front-End" && "#24BE02") ||
+                    (member.areas === "Back-End" && "#BD05AF"),
+                }}
+                key={member._id}
+              >
+                {member.fullname}{" "}
+              </div>
               <div
                 style={{ display: "flex", justifyContent: "flex-end", flex: 1 }}
               >
