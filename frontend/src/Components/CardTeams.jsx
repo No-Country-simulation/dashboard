@@ -20,7 +20,7 @@ const useStyles = makeStyles((theme) =>
       },
     },
     content: {
-      margin: "6px",
+      margin: "5px",
       padding: "2px",
     },
     btn: {
@@ -34,7 +34,8 @@ const useStyles = makeStyles((theme) =>
     },
     cardHeader: {
       paddingTop: "6px",
-      paddingBottom: "3px",
+      paddingBottom: "2px",
+      fontSize: "20px",
     },
   })
 );
@@ -67,8 +68,8 @@ export const CardTeams = ({ team }) => {
       <Card>
         <CardHeader
           avatar={<Avatar>{team?.name?.charAt(1)}</Avatar>}
-          title={team.name}
           className={classes.cardHeader}
+          title={team.name}
         />
         {team?.members.map((member) => (
           <CardContent className={classes.content} key={member._id}>
