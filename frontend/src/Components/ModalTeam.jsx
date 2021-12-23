@@ -5,6 +5,7 @@ import Backdrop from "@material-ui/core/Backdrop";
 import Fade from "@material-ui/core/Fade";
 import axios from "axios";
 import { Button, TextField } from "@material-ui/core";
+import Swal from "sweetalert2";
 
 const useStyles = makeStyles((theme) => ({
   modal: {
@@ -47,15 +48,29 @@ export const ModalTeam = () => {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(input);
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const res = await axios.post("http://localhost:5000/api/teams", input, {
-      headers: { token: `Bearer ${token}` },
-    });
-    setInput({ name: "", stack: "", project: "" });
-    console.log(res.data.team);
-    setOpen(false);
+    try {
+      if (input.name === "") {
+        Swal.fire("Lo siento", "El nombre del equipo es obligatorio!", "error");
+        setOpen(false);
+        return;
+      }
+      await axios.post("http://localhost:5000/api/teams", input, {
+        headers: { token: `Bearer ${token}` },
+      });
+      setInput({});
+      setOpen(false);
+      Swal.fire({
+        icon: "success",
+        title: "Equipo Creado Correctamente!",
+        showConfirmButton: false,
+        timer: 1500,
+      });
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -116,7 +131,7 @@ export const ModalTeam = () => {
               <Button
                 className={classes.button}
                 variant="contained"
-                color="primary"
+                color="secundary"
                 onClick={handleClose}
               >
                 Cancelar

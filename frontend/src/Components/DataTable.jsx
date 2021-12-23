@@ -7,39 +7,39 @@ const columns = [
   {
     field: "fullname",
     headerName: "Nombre y apellido",
-    width: 210,
+    width: 150,
     editable: true,
   },
   {
     field: "language",
     headerName: "Lenguaje",
-    width: 150,
+    width: 100,
     editable: true,
   },
   {
     field: "availability",
     headerName: "Horario",
-    width: 160,
-  },
-  {
-    field: "stack",
-    headerName: "Stack",
-    width: 160,
+    width: 100,
   },
   {
     field: "areas",
     headerName: "Area",
-    width: 160,
+    width: 100,
   },
   {
-    field: "cohort",
-    headerName: "cohort",
-    width: 160,
+    field: "stack",
+    headerName: "Stack",
+    width: 100,
   },
+  // {
+  //   field: "cohort",
+  //   headerName: "cohort",
+  //   width: 15,
+  // },
   {
     field: "experience",
     headerName: "experience",
-    width: 160,
+    width: 100,
   },
 ];
 export default function DataTable({ members, loading }) {
@@ -60,22 +60,24 @@ export default function DataTable({ members, loading }) {
       };
     })
     .filter(
-      (m) =>
-        m.teamleader === false && m.cohort === 2 && m.language === "Javascript"
+      (m) => m.teamleader === false && m.cohort === 2
+      // m.availability === "Full-time"
+      // m.areas === "Back-End"
+      // m.language === "Python"
     );
 
   return (
     <>
       <AssignMembers selectId={selectId} />
-      <div style={{ height: 550, width: "100%", backgroundColor: "#F5F4F4" }}>
+      <div style={{ height: 700, width: "100%", backgroundColor: "#F5F4F4" }}>
         <DataGrid
           id={rows.id}
           rows={rows}
           columns={columns}
-          pageSize={8}
+          pageSize={10}
           checkboxSelection
           loading={loading}
-          rowsPerPageOptions={[8]}
+          rowsPerPageOptions={[10]}
           onSelectionModelChange={(item) => setSelectId(item)}
         />
       </div>

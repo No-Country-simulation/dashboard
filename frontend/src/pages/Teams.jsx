@@ -1,10 +1,12 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { CardTeams } from "../Components/CardTeams";
+import { LoadingCard } from "../Components/LoadingCard";
 import { ModalTeam } from "../Components/ModalTeam";
 
 export const Teams = () => {
   const [teams, setTeams] = useState([]);
+  const [loading, setLoading] = useState(false);
   let token = localStorage.getItem("token") || "";
 
   const getTeams = async () => {
@@ -13,6 +15,7 @@ export const Teams = () => {
         headers: { token: `Bearer ${token}` },
       });
       setTeams(res.data.getAllTeams);
+      setLoading(true);
     } catch (error) {
       console.log(error);
     }
@@ -35,13 +38,13 @@ export const Teams = () => {
           paddingTop: "1rem",
           display: "grid",
           gridTemplateColumns: "repeat(auto-fill, minmax( 13rem, 1fr))",
-          gridGap: "5px",
-          gridAutoRows: "21rem",
+          gridGap: "20px",
+          gridAutoRows: "auto",
         }}
       >
-        {teams?.map((team) => (
-          <CardTeams key={team._id} team={team} />
-        ))}
+        {!loading
+          ? Array(12).fill(<LoadingCard />)
+          : teams?.map((team) => <CardTeams key={team._id} team={team} />)}
       </div>
     </>
   );
