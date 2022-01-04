@@ -22,7 +22,7 @@ const columns = [
     width: 100,
   },
   {
-    field: "areas",
+    field: "area",
     headerName: "Area",
     width: 100,
   },
@@ -31,11 +31,11 @@ const columns = [
     headerName: "Stack",
     width: 100,
   },
-  // {
-  //   field: "cohort",
-  //   headerName: "cohort",
-  //   width: 15,
-  // },
+  {
+    field: "cohort",
+    headerName: "cohort",
+    width: 155,
+  },
   {
     field: "experience",
     headerName: "experience",
@@ -45,26 +45,31 @@ const columns = [
 export default function DataTable({ members, loading }) {
   const [selectId, setSelectId] = useState([]);
 
-  let rows = members
-    ?.map((m) => {
-      return {
-        id: m._id,
-        fullname: m.fullname,
-        language: m.language,
-        availability: m.availability,
-        stack: m.stack,
-        areas: m.areas,
-        cohort: m.cohort,
-        teamleader: m.teamleader,
-        experience: m.experience,
-      };
-    })
-    .filter(
-      (m) => m.teamleader === false && m.cohort === 2
-      // m.availability === "Full-time"
-      // m.areas === "Back-End"
-      // m.language === "Python"
-    );
+  let array1 = members?.map((m) => {
+    return {
+      id: m._id,
+      fullname: m.fullname,
+    };
+  });
+
+  console.log(array1);
+  let array2 = members.map((m) => {
+    return m.cohortHistory
+      .map((mh) => {
+        return {
+          cohort: mh.cohort,
+          language: mh.language,
+          availability: mh.availability,
+          stack: mh.stack,
+          area: mh.area,
+          experience: mh.experience,
+        };
+      })
+      .filter((c) => c.cohort === 4);
+  });
+  console.log(array2);
+
+  let rows = [];
 
   return (
     <>
@@ -84,7 +89,6 @@ export default function DataTable({ members, loading }) {
     </>
   );
 }
-
 DataTable.propTypes = {
   members: PropTypes.array,
   loading: PropTypes.bool,

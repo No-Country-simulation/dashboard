@@ -21,7 +21,7 @@ export const Members = () => {
 
   useEffect(() => {
     getMembers();
-  }, [members]);
+  }, []);
 
   return (
     <div>
