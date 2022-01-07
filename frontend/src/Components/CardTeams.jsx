@@ -15,7 +15,7 @@ const useStyles = makeStyles((theme) =>
       "& > *": {
         margin: theme.spacing(2),
         "&:hover": {
-          backgroundColor: "#e9e9e9",
+          backgroundColor: "#e909",
         },
       },
     },
@@ -52,15 +52,17 @@ export const CardTeams = ({ team }) => {
       confirmButtonColor: "#d33",
       cancelButtonColor: "#3085d6",
       confirmButtonText: "Si, Eliminar!",
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire(
-          "Eliminado!",
-          "El miembor a sido eliminado del grupo.",
-          "success"
-        );
-      }
-    });
+    })
+      .then()
+      .then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire(
+            "Eliminado!",
+            "El miembor a sido eliminado del grupo.",
+            "success"
+          );
+        }
+      });
   };
 
   return (
@@ -95,7 +97,7 @@ export const CardTeams = ({ team }) => {
               >
                 <button onClick={handleSubmit} className={classes.btn}>
                   <DeleteOutlineOutlinedIcon
-                    style={{ fontSize: "20px", color: "#585858" }}
+                    style={{ fontSize: "20px", color: "red" }}
                   />
                 </button>
               </div>
