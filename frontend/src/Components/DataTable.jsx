@@ -7,69 +7,61 @@ const columns = [
   {
     field: "fullname",
     headerName: "Nombre y apellido",
-    width: 150,
+    width: 200,
     editable: true,
   },
   {
     field: "language",
     headerName: "Lenguaje",
-    width: 100,
+    width: 155,
     editable: true,
   },
   {
     field: "availability",
     headerName: "Horario",
-    width: 100,
+    width: 150,
   },
   {
     field: "area",
     headerName: "Area",
-    width: 100,
+    width: 155,
   },
   {
     field: "stack",
     headerName: "Stack",
-    width: 100,
+    width: 155,
   },
   {
     field: "cohort",
     headerName: "cohort",
-    width: 155,
+    width: 100,
   },
   {
     field: "experience",
     headerName: "experience",
-    width: 100,
+    width: 200,
   },
 ];
 export default function DataTable({ members, loading }) {
   const [selectId, setSelectId] = useState([]);
+  const rows = [];
 
-  let array1 = members?.map((m) => {
-    return {
-      id: m._id,
-      fullname: m.fullname,
-    };
-  });
-
-  console.log(array1);
-  let array2 = members.map((m) => {
-    return m.cohortHistory
-      .map((mh) => {
-        return {
+  members.forEach((m) => {
+    m.cohortHistory.map((mh) => {
+      if (mh.cohort === 1) {
+        rows.push({
+          id: m._id,
+          fullname: m.fullname,
           cohort: mh.cohort,
           language: mh.language,
           availability: mh.availability,
           stack: mh.stack,
           area: mh.area,
           experience: mh.experience,
-        };
-      })
-      .filter((c) => c.cohort === 4);
+        });
+      }
+    });
   });
-  console.log(array2);
-
-  let rows = [];
 
   return (
     <>
