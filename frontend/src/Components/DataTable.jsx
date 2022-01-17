@@ -7,64 +7,61 @@ const columns = [
   {
     field: "fullname",
     headerName: "Nombre y apellido",
-    width: 150,
+    width: 200,
     editable: true,
   },
   {
     field: "language",
     headerName: "Lenguaje",
-    width: 100,
+    width: 155,
     editable: true,
   },
   {
     field: "availability",
     headerName: "Horario",
-    width: 100,
+    width: 150,
   },
   {
-    field: "areas",
+    field: "area",
     headerName: "Area",
-    width: 100,
+    width: 155,
   },
   {
     field: "stack",
     headerName: "Stack",
+    width: 155,
+  },
+  {
+    field: "cohort",
+    headerName: "cohort",
     width: 100,
   },
-  // {
-  //   field: "cohort",
-  //   headerName: "cohort",
-  //   width: 15,
-  // },
   {
     field: "experience",
     headerName: "experience",
-    width: 100,
+    width: 200,
   },
 ];
 export default function DataTable({ members, loading }) {
   const [selectId, setSelectId] = useState([]);
+  const rows = [];
 
-  let rows = members
-    ?.map((m) => {
-      return {
-        id: m._id,
-        fullname: m.fullname,
-        language: m.language,
-        availability: m.availability,
-        stack: m.stack,
-        areas: m.areas,
-        cohort: m.cohort,
-        teamleader: m.teamleader,
-        experience: m.experience,
-      };
-    })
-    .filter(
-      (m) => m.teamleader === false && m.cohort === 2
-      // m.availability === "Full-time"
-      // m.areas === "Back-End"
-      // m.language === "Python"
-    );
+  members.forEach((m) => {
+    m.cohortHistory.map((mh) => {
+      if (mh.cohort === 1) {
+        rows.push({
+          id: m._id,
+          fullname: m.fullname,
+          cohort: mh.cohort,
+          language: mh.language,
+          availability: mh.availability,
+          stack: mh.stack,
+          area: mh.area,
+          experience: mh.experience,
+        });
+      }
+    });
+  });
 
   return (
     <>
@@ -84,7 +81,6 @@ export default function DataTable({ members, loading }) {
     </>
   );
 }
-
 DataTable.propTypes = {
   members: PropTypes.array,
   loading: PropTypes.bool,
