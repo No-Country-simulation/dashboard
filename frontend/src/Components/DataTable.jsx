@@ -47,8 +47,8 @@ export default function DataTable({ members, loading }) {
   const rows = [];
 
   members.forEach((m) => {
-    m.cohortHistory.map((mh) => {
-      if (mh.cohort === 1) {
+    m.cohortHistory?.map((mh) => {
+      if (mh.cohort === 3 & mh.assigned === false) {
         rows.push({
           id: m._id,
           fullname: m.fullname,

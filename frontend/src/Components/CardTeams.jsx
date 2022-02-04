@@ -43,7 +43,9 @@ const useStyles = makeStyles((theme) =>
 export const CardTeams = ({ team }) => {
   const classes = useStyles();
 
-  const handleSubmit = () => {
+  const handleDelete = async () => {
+    
+
     Swal.fire({
       title: "Desea eliminar el miembro?",
       text: "¡No podrás revertir esto!",
@@ -58,7 +60,7 @@ export const CardTeams = ({ team }) => {
         if (result.isConfirmed) {
           Swal.fire(
             "Eliminado!",
-            "El miembor a sido eliminado del grupo.",
+            "El miembro ha sido eliminado del grupo.",
             "success"
           );
         }
@@ -95,7 +97,7 @@ export const CardTeams = ({ team }) => {
               <div
                 style={{ display: "flex", justifyContent: "flex-end", flex: 1 }}
               >
-                <button onClick={handleSubmit} className={classes.btn}>
+                <button onClick={handleDelete} className={classes.btn}>
                   <DeleteOutlineOutlinedIcon
                     style={{ fontSize: "20px", color: "red" }}
                   />

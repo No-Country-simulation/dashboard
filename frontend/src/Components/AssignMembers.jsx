@@ -8,6 +8,9 @@ export const AssignMembers = ({ selectId }) => {
   let token = localStorage.getItem("token") || "";
   const [teams, setTeams] = useState([]);
 
+  // console.log(selectId.join());
+
+  // const memberId = selectId.join();
   const [teamSelect, setTeamSelect] = useState({
     selected: null,
   });
@@ -39,9 +42,9 @@ export const AssignMembers = ({ selectId }) => {
         }
       );
 
-      await axios.put("http://localhost:5000/api/members", {
-        selectId: selectId,
-      });
+      // await axios.put("http://localhost:5000/api/members", {
+      //   selectId: selectId, cohort : 3
+      // });
       Swal.fire({
         icon: "success",
         title: "Miembos Asignados al grupo",

@@ -4,15 +4,24 @@ const fs = require("fs")
 
 async function getGithubs()  {
     let githubs = [];
+    let token = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxYjI2YzBiYmE4M2YzYTU5MWVmYmZiYiIsImFkbWluIjp0cnVlLCJpYXQiOjE2NDMyMTgyMDUsImV4cCI6MTY0MzQ3NzQwNX0.rhxauh4huAzINsbVIXrD3Th3mIDS4Zz4JrPX0cKBWp8';
 
-    const res = await axios.get("http://localhost:5000/api/members");
+    const res = await axios.get("http://localhost:5000/api/members", {headers: { token: `Bearer ${token}` },});
 
-    githubs.push(res.data.getAllMembers.filter((m) => m.cohort === 2).map((m) => m.github))
+    const members = res.data.getAllMembers;
 
-        var file = fs.createWriteStream('github2.txt');
-        file.on('error', function(err) { /* error handling */ });
-        githubs.forEach(function(v) { file.write(v.join(', ') + '\n'); });
-        file.end();
+    members.forEach((m) => {
+        m.cohortHistory.map((mh) => {
+            if(mh.cohort === 1){
+                githubs.push(m.github)
+            }
+        })
+    })
+    console.log(githubs)
+
+    let githubsWithSpace = githubs.join('\n')
+
+    fs.writeFileSync('githubsC1.txt', githubsWithSpace);
 
   
 }
