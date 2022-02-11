@@ -44,7 +44,7 @@ export const Teams = () => {
       >
         {!loading
           ? Array(12).fill(<LoadingCard />)
-          : teams?.map((team) => <CardTeams key={team._id} team={team} />)}
+          : teams?.map((team) => <CardTeams key={team._id} team={team}/>)}
       </div>
     </>
   );

@@ -5,7 +5,8 @@ import PropTypes from "prop-types";
 import { Avatar, Box, CardHeader } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 // import Swal from "sweetalert2";
-import { axios } from "axios";
+// import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
+import axios from "axios";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -46,9 +47,9 @@ export const CardTeams = ({ team }) => {
 
   const handleDelete = async (e) => {
     e.preventDefault();
-    console.log(e.target.id);
-    console.log(team._id);
-    
+    // console.log(e.target.id);
+    // console.log(team._id);
+
     try{
       await axios.put(`http://localhost:5000/api/teams/remove/${team._id}`, 
         {member: e.target.id}, 
@@ -61,6 +62,7 @@ export const CardTeams = ({ team }) => {
     catch(err){
       console.log(err);
     }
+   
 
 
     // Swal.fire({
@@ -117,8 +119,11 @@ export const CardTeams = ({ team }) => {
                 style={{ display: "flex", justifyContent: "flex-end", flex: 1 }}
               >
                 
-                <button onClick={handleDelete} id={member._id} className={classes.btn}>
-                 Delete
+                <button onClick={handleDelete} id={member._id} className={classes.btn} style={{color: "red", fontSize:"10px"}}>
+                  {/* <DeleteOutlineOutlinedIcon
+                    style={{ fontSize: "20px", color: "red" }}
+                  /> */}
+                  Delete
                 </button>
                
               </div>
@@ -131,5 +136,5 @@ export const CardTeams = ({ team }) => {
 };
 
 CardTeams.propTypes = {
-  team: PropTypes.object,
+  team: PropTypes.object
 };
