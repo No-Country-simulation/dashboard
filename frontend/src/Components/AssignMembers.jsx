@@ -42,9 +42,9 @@ export const AssignMembers = ({ selectId }) => {
         }
       );
 
-      // await axios.put("http://localhost:5000/api/members", {
-      //   selectId: selectId, cohort : 3
-      // });
+      await axios.put("http://localhost:5000/api/members", {
+        selectId: selectId, cohort : 3
+      });
       Swal.fire({
         icon: "success",
         title: "Miembos Asignados al grupo",

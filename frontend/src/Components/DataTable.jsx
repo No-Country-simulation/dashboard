@@ -48,7 +48,12 @@ export default function DataTable({ members, loading }) {
 
   members.forEach((m) => {
     m.cohortHistory?.map((mh) => {
-      if (mh.cohort === 3 & mh.assigned === false) {
+      if (mh.cohort === 3 & mh.assigned === false 
+      // & mh.language === "Javascript" 
+      // & mh.area === "Full-Stack" 
+      // // // & mh.stack ==="JQuery"
+      // & mh.availability === "Tarde"
+      ) {
         rows.push({
           id: m._id,
           fullname: m.fullname,

@@ -3,9 +3,9 @@ import Card from "@material-ui/core/Card";
 import CardContent from "@material-ui/core/CardContent";
 import PropTypes from "prop-types";
 import { Avatar, Box, CardHeader } from "@material-ui/core";
-import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-import Swal from "sweetalert2";
+// import Swal from "sweetalert2";
+import { axios } from "axios";
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -41,31 +41,49 @@ const useStyles = makeStyles((theme) =>
 );
 
 export const CardTeams = ({ team }) => {
+  let token = localStorage.getItem("token") || "";
   const classes = useStyles();
 
-  const handleDelete = async () => {
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    console.log(e.target.id);
+    console.log(team._id);
     
-
-    Swal.fire({
-      title: "Desea eliminar el miembro?",
-      text: "¡No podrás revertir esto!",
-      icon: "warning",
-      showCancelButton: true,
-      confirmButtonColor: "#d33",
-      cancelButtonColor: "#3085d6",
-      confirmButtonText: "Si, Eliminar!",
-    })
-      .then()
-      .then((result) => {
-        if (result.isConfirmed) {
-          Swal.fire(
-            "Eliminado!",
-            "El miembro ha sido eliminado del grupo.",
-            "success"
-          );
+    try{
+      await axios.put(`http://localhost:5000/api/teams/remove/${team._id}`, 
+        {member: e.target.id}, 
+        {
+          headers: { token: `Bearer ${token}` },
         }
-      });
+      );
+
+    }
+    catch(err){
+      console.log(err);
+    }
+
+
+    // Swal.fire({
+    //   title: "Desea eliminar el miembro?",
+    //   text: "¡No podrás revertir esto!",
+    //   icon: "warning",
+    //   showCancelButton: true,
+    //   confirmButtonColor: "#d33",
+    //   cancelButtonColor: "#3085d6",
+    //   confirmButtonText: "Si, Eliminar!",
+    // })
+    //   .then((result) => {
+    //     if (result.isConfirmed) {
+    //       Swal.fire(
+    //         "Eliminado!",
+    //         "El miembro ha sido eliminado del grupo.",
+    //         "success"
+    //       );
+    //     }
+    //   });
   };
+
+
 
   return (
     <Box className={classes.root}>
@@ -90,18 +108,19 @@ export const CardTeams = ({ team }) => {
                     (member.areas === "Front-End" && "#24BE02") ||
                     (member.areas === "Back-End" && "#BD05AF"),
                 }}
-                key={member._id}
+               
               >
                 {member.fullname}{" "}
+                
               </div>
               <div
                 style={{ display: "flex", justifyContent: "flex-end", flex: 1 }}
               >
-                <button onClick={handleDelete} className={classes.btn}>
-                  <DeleteOutlineOutlinedIcon
-                    style={{ fontSize: "20px", color: "red" }}
-                  />
+                
+                <button onClick={handleDelete} id={member._id} className={classes.btn}>
+                 Delete
                 </button>
+               
               </div>
             </div>
           </CardContent>
