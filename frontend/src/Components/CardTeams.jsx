@@ -57,6 +57,7 @@ export const CardTeams = ({ team }) => {
           headers: { token: `Bearer ${token}` },
         }
       );
+   
 
     }
     catch(err){

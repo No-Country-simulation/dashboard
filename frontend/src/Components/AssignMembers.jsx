@@ -35,16 +35,13 @@ export const AssignMembers = ({ selectId }) => {
     e.preventDefault();
     try {
       await axios.put(
-        `http://localhost:5000/api/teams/asignar/${teamSelect}`,
+        `http://localhost:5000/api/teams/asignar/${teamSelect}`, // (putMemberTeam)
         { members: selectId },
         {
           headers: { token: `Bearer ${token}` },
         }
       );
-
-      await axios.put("http://localhost:5000/api/members", {
-        selectId: selectId, cohort : 3
-      });
+      
       Swal.fire({
         icon: "success",
         title: "Miembos Asignados al grupo",
