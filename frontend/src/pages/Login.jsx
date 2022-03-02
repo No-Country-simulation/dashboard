@@ -61,15 +61,15 @@ export default function Login() {
       [e.target.name]: e.target.value,
     });
   };
-  console.log(input);
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     const res = await axios.post("http://localhost:5000/api/login", input);
-    console.log(res.data);
+   
 
     if (res.data) {
       localStorage.setItem("token", res.data.accessToken);
-      console.log("localstorage");
+      
     } else return null;
   };
 

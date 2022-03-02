@@ -44,9 +44,9 @@ export const AssignMembers = ({ selectId }) => {
       
       Swal.fire({
         icon: "success",
-        title: "Miembos Asignados al grupo",
+        title: "Miembros Asignados al Equipo",
         showConfirmButton: false,
-        timer: 2000,
+        timer: 1000,
       });
     } catch (error) {
       console.log(error);

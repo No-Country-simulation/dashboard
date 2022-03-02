@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import Login from "./pages/Login";
 import { Members } from "./pages/Members";
 import { Teams } from "./pages/Teams";
+import CardDetail from "./Components/CardDetail";
 
 function App() {
   return (
@@ -24,6 +25,9 @@ function App() {
             </Route>
             <Route path="/teams">
               <Teams />
+            </Route>
+            <Route path="/teams:id">
+              <CardDetail />
             </Route>
           </Switch>
         </div>

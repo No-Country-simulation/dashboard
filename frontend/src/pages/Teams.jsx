@@ -9,12 +9,14 @@ export const Teams = () => {
   const [loading, setLoading] = useState(false);
   let token = localStorage.getItem("token") || "";
 
+
   const getTeams = async () => {
     try {
       const res = await axios.get("http://localhost:5000/api/teams", {
         headers: { token: `Bearer ${token}` },
       });
-      setTeams(res.data.getAllTeams);
+      setTeams(res.data.getAllTeams); 
+      // ACA DEBERIAMOS FILTRAR POR TIPO O NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
       setLoading(true);
     } catch (error) {
       console.log(error);
@@ -24,6 +26,8 @@ export const Teams = () => {
   useEffect(() => {
     getTeams();
   }, [teams]);
+
+  
 
   return (
     <>
@@ -42,9 +46,12 @@ export const Teams = () => {
           gridAutoRows: "auto",
         }}
       >
+         
         {!loading
           ? Array(12).fill(<LoadingCard />)
           : teams?.map((team) => <CardTeams key={team._id} team={team}/>)}
+
+        
       </div>
     </>
   );

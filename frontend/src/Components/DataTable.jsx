@@ -51,7 +51,7 @@ export default function DataTable({ members, loading }) {
       if (mh.cohort === 3 & mh.assigned === false 
       // & mh.language === "Javascript" 
       // & mh.area === "Full-Stack" 
-      // // // & mh.stack ==="JQuery"
+      // & mh.stack ==="JQuery"
       // & mh.availability === "Tarde"
       ) {
         rows.push({

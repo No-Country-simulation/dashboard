@@ -4,9 +4,9 @@ import CardContent from "@material-ui/core/CardContent";
 import PropTypes from "prop-types";
 import { Avatar, Box, CardHeader } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
-// import Swal from "sweetalert2";
-// import DeleteOutlineOutlinedIcon from "@material-ui/icons/DeleteOutlineOutlined";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) =>
   createStyles({
@@ -38,6 +38,13 @@ const useStyles = makeStyles((theme) =>
       paddingBottom: "2px",
       fontSize: "20px",
     },
+    link: {
+      color: "black",
+      textDecoration: "none",
+      "&:focus": {
+        color: theme.palette.primary.light,
+      },
+    },
   })
 );
 
@@ -45,11 +52,12 @@ export const CardTeams = ({ team }) => {
   let token = localStorage.getItem("token") || "";
   const classes = useStyles();
 
+
+  // ACA DEBERIAMOS FILTRAR POR TIPO O NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
+
   const handleDelete = async (e) => {
     e.preventDefault();
-    // console.log(e.target.id);
-    // console.log(team._id);
-
+  
     try{
       await axios.put(`http://localhost:5000/api/teams/remove/${team._id}`, 
         {member: e.target.id}, 
@@ -63,27 +71,7 @@ export const CardTeams = ({ team }) => {
     catch(err){
       console.log(err);
     }
-   
-
-
-    // Swal.fire({
-    //   title: "Desea eliminar el miembro?",
-    //   text: "¡No podrás revertir esto!",
-    //   icon: "warning",
-    //   showCancelButton: true,
-    //   confirmButtonColor: "#d33",
-    //   cancelButtonColor: "#3085d6",
-    //   confirmButtonText: "Si, Eliminar!",
-    // })
-    //   .then((result) => {
-    //     if (result.isConfirmed) {
-    //       Swal.fire(
-    //         "Eliminado!",
-    //         "El miembro ha sido eliminado del grupo.",
-    //         "success"
-    //       );
-    //     }
-    //   });
+      
   };
 
 
@@ -91,13 +79,17 @@ export const CardTeams = ({ team }) => {
   return (
     <Box className={classes.root}>
       <Card>
-        <CardHeader
-          avatar={<Avatar>{team?.name?.charAt(1)}</Avatar>}
-          className={classes.cardHeader}
-          title={team.name}
-        />
+        <Link to={`/teams/${team._id}`} className={classes.link}>
+          <CardHeader
+            avatar={<Avatar>{team?.name?.charAt(1)}</Avatar>}
+            className={classes.cardHeader}
+            title={team.name}
+          />
+        </Link>
         {team?.members.map((member) => (
+          
           <CardContent className={classes.content} key={member._id}>
+            
             <div
               style={{
                 display: "flex",
@@ -107,29 +99,28 @@ export const CardTeams = ({ team }) => {
               <div
                 style={{
                   color:
-                    (member.areas === "Full-Stack" && "#158EFA") ||
-                    (member.areas === "Front-End" && "#24BE02") ||
-                    (member.areas === "Back-End" && "#BD05AF"),
+                      (member.areas === "Full-Stack" && "#158EFA") ||
+                      (member.areas === "Front-End" && "#24BE02") ||
+                      (member.areas === "Back-End" && "#BD05AF"),
                 }}
-               
+                
               >
                 {member.fullname}{" "}
-                
+                  
               </div>
               <div
                 style={{ display: "flex", justifyContent: "flex-end", flex: 1 }}
               >
-                
+                  
                 <button onClick={handleDelete} id={member._id} className={classes.btn} style={{color: "red", fontSize:"10px"}}>
-                  {/* <DeleteOutlineOutlinedIcon
-                    style={{ fontSize: "20px", color: "red" }}
-                  /> */}
                   Delete
                 </button>
-               
+                
               </div>
             </div>
+           
           </CardContent>
+          
         ))}
       </Card>
     </Box>
