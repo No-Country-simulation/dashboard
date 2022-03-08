@@ -6,6 +6,7 @@ import { Home } from "./pages/Home";
 import Login from "./pages/Login";
 import { Members } from "./pages/Members";
 import { Teams } from "./pages/Teams";
+import { Selection } from "./pages/Selection";
 import CardDetail from "./Components/CardDetail";
 
 function App() {
@@ -26,11 +27,15 @@ function App() {
             <Route path="/teams">
               <Teams />
             </Route>
-            <Route path="/teams:id">
-              <CardDetail />
+            <Route path="/selection">
+              <Selection />
             </Route>
+            
           </Switch>
         </div>
+        <Route path="/teams/:id">
+          <CardDetail />
+        </Route> 
       </Dashboard>
     </Router>
   );

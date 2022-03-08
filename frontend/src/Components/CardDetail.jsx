@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 // import { createStyles, makeStyles } from "@material-ui/core/styles";
 // import PropTypes from "prop-types";
-// import { useParams } from "react-router";
+import { useParams } from "react-router";
 
 
 // const useStyles = makeStyles((theme) =>
@@ -39,10 +39,10 @@ import PropTypes from "prop-types";
 // );
 
 
-export default function CardDetail ({id}) {
+export default function CardDetail () {
 
   // const classes = useStyles();
-  //   const { id } = useParams();
+  const { id } = useParams();
 
   return (
     <div>

@@ -21,11 +21,11 @@ export const mainListItems = (
       </NavLink>
     </ListItem>
     <ListItem button>
-      <NavLink exact to="/comunidad" className="nav-link">
+      <NavLink exact to="/selection" className="nav-link">
         <ListItemIcon>
           <PeopleIcon />
         </ListItemIcon>
-        <ListItemText primary="Comunidad" />
+        <ListItemText primary="Seleccionado" />
       </NavLink>
     </ListItem>
     <ListItem button>

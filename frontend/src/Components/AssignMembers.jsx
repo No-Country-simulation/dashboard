@@ -8,18 +8,24 @@ export const AssignMembers = ({ selectId }) => {
   let token = localStorage.getItem("token") || "";
   const [teams, setTeams] = useState([]);
 
-  // console.log(selectId.join());
-
-  // const memberId = selectId.join();
+ 
   const [teamSelect, setTeamSelect] = useState({
     selected: null,
   });
 
   const getTeams = async () => {
+    let nameTeams = [];
     const res = await axios.get("http://localhost:5000/api/teams", {
       headers: { token: `Bearer ${token}` },
     });
-    setTeams(res.data.getAllTeams);
+
+    //FILTRAR POR NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
+    res.data.getAllTeams.map((team) => {
+      if(team.name.indexOf("C") === 0 && team.name.indexOf("3") === 1 ){
+        nameTeams.push(team);
+      }
+    });
+    setTeams(nameTeams);
   };
 
   useEffect(() => {

@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 import { Avatar, Box, CardHeader } from "@material-ui/core";
 import { createStyles, makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 
 const useStyles = makeStyles((theme) =>
@@ -79,13 +79,13 @@ export const CardTeams = ({ team }) => {
   return (
     <Box className={classes.root}>
       <Card>
-        <Link to={`/teams/${team._id}`} className={classes.link}>
+        <NavLink to={`/teams/${team._id}`} className={classes.link}>
           <CardHeader
             avatar={<Avatar>{team?.name?.charAt(1)}</Avatar>}
             className={classes.cardHeader}
             title={team.name}
           />
-        </Link>
+        </NavLink>
         {team?.members.map((member) => (
           
           <CardContent className={classes.content} key={member._id}>

@@ -12,12 +12,32 @@ export const Teams = () => {
 
   const getTeams = async () => {
     try {
+      let nameTeams = [];
       const res = await axios.get("http://localhost:5000/api/teams", {
         headers: { token: `Bearer ${token}` },
       });
-      setTeams(res.data.getAllTeams); 
-      // ACA DEBERIAMOS FILTRAR POR TIPO O NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
+
+      //FILTRAR POR NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
+
+      //COHORT PRIMERA INSTANCIA
+      res.data.getAllTeams.map((team) => {
+        if(team.name.indexOf("C") === 0 && team.name.indexOf("3") === 1 ){
+          nameTeams.push(team);
+        }
+      });
+
+      //SELECTION SEGUNDA INSTANCIA
+      // res.data.getAllTeams.map((team) => {
+      //   if(team.name.indexOf("S") === 0 && team.name.indexOf("1") === 1 ){
+      //     nameTeams.push(team);
+      //   }
+      // });
+
+      
+     
+      setTeams(nameTeams); 
       setLoading(true);
+
     } catch (error) {
       console.log(error);
     }
