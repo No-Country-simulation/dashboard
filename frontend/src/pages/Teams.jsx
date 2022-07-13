@@ -20,15 +20,22 @@ export const Teams = () => {
       //FILTRAR POR NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
 
       //COHORT PRIMERA INSTANCIA
+      // res.data.getAllTeams.map((team) => {
+      //   if(team.name.indexOf("C") === 0 && team.name.indexOf("5") === 1 ){
+      //     nameTeams.push(team);
+      //   }
+      // });
+
+      //SELECTION SEGUNDA INSTANCIA
       res.data.getAllTeams.map((team) => {
-        if(team.name.indexOf("C") === 0 && team.name.indexOf("3") === 1 ){
+        if(team.name.indexOf("S") === 0 && team.name.indexOf("2") === 1 ){
           nameTeams.push(team);
         }
       });
 
-      //SELECTION SEGUNDA INSTANCIA
+      //TODOS LOS EQUIPOS
       // res.data.getAllTeams.map((team) => {
-      //   if(team.name.indexOf("S") === 0 && team.name.indexOf("1") === 1 ){
+      //   if(team.name.indexOf("C") === 0){
       //     nameTeams.push(team);
       //   }
       // });

@@ -59,13 +59,21 @@ export const CardTeams = ({ team }) => {
     e.preventDefault();
   
     try{
-      await axios.put(`http://localhost:5000/api/teams/remove/${team._id}`, 
+      //COHORT
+      // await axios.put(`http://localhost:5000/api/teams/remove/${team._id}`, 
+      //   {member: e.target.id}, 
+      //   {
+      //     headers: { token: `Bearer ${token}` },
+      //   }
+      // );
+
+      //SELECTION
+      await axios.put(`http://localhost:5000/api/teams/removeSelection/${team._id}`, 
         {member: e.target.id}, 
         {
           headers: { token: `Bearer ${token}` },
         }
-      );
-   
+      );  
 
     }
     catch(err){
@@ -81,7 +89,7 @@ export const CardTeams = ({ team }) => {
       <Card>
         <NavLink to={`/teams/${team._id}`} className={classes.link}>
           <CardHeader
-            avatar={<Avatar>{team?.name?.charAt(1)}</Avatar>}
+            avatar={<Avatar>{team?.members.length}</Avatar>}
             className={classes.cardHeader}
             title={team.name}
           />

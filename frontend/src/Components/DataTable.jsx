@@ -47,25 +47,51 @@ export default function DataTable({ members, loading }) {
   const rows = [];
 
   members.forEach((m) => {
-    m.cohortHistory?.map((mh) => {
-      if (mh.cohort === 3 & mh.assigned === false 
-      // & mh.language === "Javascript" 
-      // & mh.area === "Full-Stack" 
-      // & mh.stack ==="JQuery"
-      // & mh.availability === "Tarde"
-      ) {
-        rows.push({
-          id: m._id,
-          fullname: m.fullname,
-          cohort: mh.cohort,
-          language: mh.language,
-          availability: mh.availability,
-          stack: mh.stack,
-          area: mh.area,
-          experience: mh.experience,
-        });
-      }
-    });
+
+    //SELECTION
+    if(m.filterPassed === true){ 
+      m.selectionHistory?.map((mh) => {
+        if (mh.selection === 2 & mh.assigned === false 
+        // & mh.language === "Java" 
+        // & mh.area === "Back-End" 
+        // & mh.stack ==="Mern"
+        // & mh.availability !== "Mañana"
+        ) {
+          rows.push({
+            id: m._id,
+            fullname: m.fullname,
+            cohort: mh.selection,
+            language: mh.language,
+            availability: mh.availability,
+            stack: mh.stack,
+            area: mh.area,
+            experience: mh.experience,
+          });
+        }
+      });}
+
+
+    // COHORT
+    // if(m.filterPassed === false){ 
+    //   m.cohortHistory?.map((mh) => {
+    //     if (mh.cohort === 5 & mh.assigned === false 
+    //     // & mh.language === "Javascript" 
+    //     // & mh.area === "Design" 
+    //     // & mh.stack ==="Mern"
+    //     // & mh.availability === "Full-time"
+    //     ) {
+    //       rows.push({
+    //         id: m._id,
+    //         fullname: m.fullname,
+    //         cohort: mh.cohort,
+    //         language: mh.language,
+    //         availability: mh.availability,
+    //         stack: mh.stack,
+    //         area: mh.area,
+    //         experience: mh.experience,
+    //       });
+    //     }
+    //   });}
   });
 
   return (
@@ -76,7 +102,7 @@ export default function DataTable({ members, loading }) {
           id={rows.id}
           rows={rows}
           columns={columns}
-          pageSize={10}
+          pageSize={30}
           checkboxSelection
           loading={loading}
           rowsPerPageOptions={[10]}
