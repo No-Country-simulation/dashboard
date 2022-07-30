@@ -2,7 +2,7 @@ import { DataGrid } from "@material-ui/data-grid";
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { AssignMembers } from "./AssignMembers";
-
+let mmm = [];
 const columns = [
   {
     field: "fullname",
@@ -49,18 +49,45 @@ export default function DataTable({ members, loading }) {
   members.forEach((m) => {
 
     //SELECTION
-    if(m.filterPassed === true){ 
-      m.selectionHistory?.map((mh) => {
-        if (mh.selection === 2 & mh.assigned === false 
-        // & mh.language === "Java" 
-        // & mh.area === "Back-End" 
+    // if(m.filterPassed === true){ 
+    //   m.selectionHistory?.map((mh) => {
+    //     if (mh.selection === 3 & mh.assigned === false 
+    //     // & mh.language === "Java" 
+    //     // & mh.area === "Back-End" 
+    //     // & mh.stack ==="Mern"
+    //     // & mh.availability !== "Mañana"
+    //     ) {
+    //       mmm.push(mh);          
+    //       rows.push({
+    //         id: m._id,
+    //         fullname: m.fullname,
+    //         cohort: mh.selection,
+    //         language: mh.language,
+    //         availability: mh.availability,
+    //         stack: mh.stack,
+    //         area: mh.area,
+    //         experience: mh.experience,
+    //       });
+    //     }
+    //   });}
+
+    //MODIFCREACION
+    // COHORT
+
+    if(m.filterPassed === false){ 
+      m.cohortHistory?.map((mh) => {
+        if (mh.cohort === 6 & mh.assigned === false 
+          
+        // & mh.language === "Javascript" 
+        // & mh.area === "Design" 
         // & mh.stack ==="Mern"
-        // & mh.availability !== "Mañana"
+        // & mh.availability === "Full-time"
         ) {
+          mmm.push(mh);
           rows.push({
             id: m._id,
             fullname: m.fullname,
-            cohort: mh.selection,
+            cohort: mh.cohort,
             language: mh.language,
             availability: mh.availability,
             stack: mh.stack,
@@ -70,28 +97,7 @@ export default function DataTable({ members, loading }) {
         }
       });}
 
-
-    // COHORT
-    // if(m.filterPassed === false){ 
-    //   m.cohortHistory?.map((mh) => {
-    //     if (mh.cohort === 5 & mh.assigned === false 
-    //     // & mh.language === "Javascript" 
-    //     // & mh.area === "Design" 
-    //     // & mh.stack ==="Mern"
-    //     // & mh.availability === "Full-time"
-    //     ) {
-    //       rows.push({
-    //         id: m._id,
-    //         fullname: m.fullname,
-    //         cohort: mh.cohort,
-    //         language: mh.language,
-    //         availability: mh.availability,
-    //         stack: mh.stack,
-    //         area: mh.area,
-    //         experience: mh.experience,
-    //       });
-    //     }
-    //   });}
+    // alert(mmm.length);
   });
 
   return (
@@ -102,7 +108,7 @@ export default function DataTable({ members, loading }) {
           id={rows.id}
           rows={rows}
           columns={columns}
-          pageSize={30}
+          pageSize={100}
           checkboxSelection
           loading={loading}
           rowsPerPageOptions={[10]}

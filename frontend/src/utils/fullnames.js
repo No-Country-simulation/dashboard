@@ -12,7 +12,7 @@ async function getFullNames()  {
 
     members.forEach((m) => {
         m.cohortHistory.map((mh) => {
-            if(mh.cohort === 1){
+            if(mh.cohort === 6){
                 fullnames.push(m.fullname)
             }
         })

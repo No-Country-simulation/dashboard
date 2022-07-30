@@ -19,9 +19,10 @@ export const AssignMembers = ({ selectId }) => {
       headers: { token: `Bearer ${token}` },
     });
 
+    //MODIFCREACION
     //FILTRAR POR NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
     res.data.getAllTeams.map((team) => {
-      if(team.name.indexOf("S") === 0 && team.name.indexOf("2") === 1 ){
+      if(team.name.indexOf("C") === 0 && team.name.indexOf("6") === 1 ){
         nameTeams.push(team);
       }
     });
@@ -38,24 +39,38 @@ export const AssignMembers = ({ selectId }) => {
   };
 
   const handleSubmit = async (e) => {
+ 
     e.preventDefault();
+
+    if (teamSelect === undefined || teamSelect === null) {
+      alert("holis");
+    }
     try {
       //COHORTTEAM
-      // await axios.put(
-      //   `http://localhost:5000/api/teams/asignar/${teamSelect}`, // (putMemberTeam)
-      //   { members: selectId },
-      //   {
-      //     headers: { token: `Bearer ${token}` },
-      //   }
-      // );
-      // SELECTIONTEAM
-      await axios.put(
-        `http://localhost:5000/api/teams/selection/${teamSelect}`, // (putMemberSelectionTeam)
-        { members: selectId },
-        {
-          headers: { token: `Bearer ${token}` },
-        }
-      );
+      
+      const idArray = selectId.toString().split(",");
+      for (const id of idArray) {
+
+        await axios.put(
+          `http://localhost:5000/api/teams/asignar/${teamSelect}`, // (putMemberTeam)
+          { members: id },
+          {
+            headers: { token: `Bearer ${token}` },
+          }
+        );
+
+        // SELECTIONTEAM
+        // await axios.put(
+        //   `http://localhost:5000/api/teams/selection/${teamSelect}`, // (putMemberSelectionTeam)
+        //   { members: id },
+        //   {
+        //     headers: { token: `Bearer ${token}` },
+        //   }
+        // );
+
+      }
+
+
 
       Swal.fire({
         icon: "success",

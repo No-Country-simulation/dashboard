@@ -52,7 +52,7 @@ export const CardTeams = ({ team }) => {
   let token = localStorage.getItem("token") || "";
   const classes = useStyles();
 
-
+  console.log(team);
   // ACA DEBERIAMOS FILTRAR POR TIPO O NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
 
   const handleDelete = async (e) => {
@@ -60,20 +60,20 @@ export const CardTeams = ({ team }) => {
   
     try{
       //COHORT
-      // await axios.put(`http://localhost:5000/api/teams/remove/${team._id}`, 
-      //   {member: e.target.id}, 
-      //   {
-      //     headers: { token: `Bearer ${token}` },
-      //   }
-      // );
-
-      //SELECTION
-      await axios.put(`http://localhost:5000/api/teams/removeSelection/${team._id}`, 
+      await axios.put(`http://localhost:5000/api/teams/remove/${team._id}`, 
         {member: e.target.id}, 
         {
           headers: { token: `Bearer ${token}` },
         }
-      );  
+      );
+
+      //SELECTION
+      // await axios.put(`http://localhost:5000/api/teams/removeSelection/${team._id}`, 
+      //   {member: e.target.id}, 
+      //   {
+      //     headers: { token: `Bearer ${token}` },
+      //   }
+      // );  
 
     }
     catch(err){

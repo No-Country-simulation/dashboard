@@ -8,11 +8,13 @@ export const Members = () => {
   let token = localStorage.getItem("token") || "";
 
   const getMembers = async () => {
+
     try {
-      const res = await axios.get("http://localhost:5000/api/members", {
+      const res = await axios.get("http://localhost:5000/api/members/actual", {
+      // const res = await axios.get("http://localhost:5000/api/selection/actual", {
         headers: { token: `Bearer ${token}` },
       });
-      setMembers(res.data.getAllMembers);
+      setMembers(res.data.getActualMembers);
       setLoading(false);
     } catch (error) {
       console.log(error);
