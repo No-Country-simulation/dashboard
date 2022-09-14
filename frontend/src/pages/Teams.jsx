@@ -14,8 +14,8 @@ export const Teams = () => {
     try {
       let nameTeams = [];
       // const res = await axios.get("http://localhost:5000/api/teams", {
-      const res = await axios.get("http://localhost:5000/api/teams/actual", {
-      // const res = await axios.get("http://localhost:5000/api/teams/actualselection", {
+      // const res = await axios.get("http://localhost:5000/api/teams/actual", {
+      const res = await axios.get("http://localhost:5000/api/teams/actualselection", {
         headers: { token: `Bearer ${token}` },
       });
 
@@ -32,17 +32,17 @@ export const Teams = () => {
 
       // res.data.getAllTeams.map((team) => {
 
-      res.data.getActualTeams.map((team) => {
-        if(team.name.indexOf("C") === 0 && team.name.indexOf("6") === 1 ){
-          nameTeams.push(team);
-        }
-      });
-
-      // res.data.getActualselTeams.map((team) => {
-      //   if(team.name.indexOf("S") === 0 && team.name.indexOf("3") === 1 ){
+      // res.data.getActualTeams.map((team) => {
+      //   if(team.name.indexOf("C") === 0 && team.name.indexOf("7") === 1 ){
       //     nameTeams.push(team);
       //   }
       // });
+      console.log(res);
+      res.data.getActualselTeams.map((team) => {
+        if(team.name.indexOf("S") === 0 && team.name.indexOf("4") === 1 ){
+          nameTeams.push(team);
+        }
+      });
 
       // TODOS LOS EQUIPOS
       // res.data.getAllTeams.map((team) => {

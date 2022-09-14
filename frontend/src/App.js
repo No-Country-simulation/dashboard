@@ -5,6 +5,7 @@ import { Dashboard } from "./Components/Dashboard";
 import { Home } from "./pages/Home";
 import Login from "./pages/Login";
 import { Members } from "./pages/Members";
+import { FullMembers } from "./pages/FullMembers";
 import { Teams } from "./pages/Teams";
 import { Selection } from "./pages/Selection";
 import CardDetail from "./Components/CardDetail";
@@ -30,7 +31,12 @@ function App() {
             <Route path="/selection">
               <Selection />
             </Route>
-            
+            <Route path="/fullmembers">
+              <FullMembers />
+            </Route>
+            <Route path="/teamleaders">
+              <Selection />
+            </Route>
           </Switch>
         </div>
         <Route path="/teams/:id">

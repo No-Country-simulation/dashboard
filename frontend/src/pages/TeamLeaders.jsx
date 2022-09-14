@@ -10,8 +10,8 @@ export const Members = () => {
   const getMembers = async () => {
 
     try {
-      // const res = await axios.get("http://localhost:5000/api/members/actual", {
-      const res = await axios.get("http://localhost:5000/api/selection/actual", {
+      const res = await axios.get("http://localhost:5000/api/members/actual", {
+      // const res = await axios.get("http://localhost:5000/api/selection/actual", {
         headers: { token: `Bearer ${token}` },
       });
       setMembers(res.data.getActualMembers);
@@ -27,7 +27,7 @@ export const Members = () => {
 
   return (
     <div>
-      <h1>Miembros sin Equipo</h1>
+      <h1>Miasdn Equipo</h1>
       <DataTable members={members} loading={loading} />
     </div>
   );

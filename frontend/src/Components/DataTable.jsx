@@ -4,10 +4,11 @@ import PropTypes from "prop-types";
 import { AssignMembers } from "./AssignMembers";
 let mmm = [];
 const columns = [
+ 
   {
     field: "fullname",
-    headerName: "Nombre y apellido",
-    width: 200,
+    headerName: "Fullname",
+    width: 155,
     editable: true,
   },
   {
@@ -16,6 +17,7 @@ const columns = [
     width: 155,
     editable: true,
   },
+
   {
     field: "availability",
     headerName: "Horario",
@@ -49,45 +51,19 @@ export default function DataTable({ members, loading }) {
   members.forEach((m) => {
 
     //SELECTION
-    // if(m.filterPassed === true){ 
-    //   m.selectionHistory?.map((mh) => {
-    //     if (mh.selection === 3 & mh.assigned === false 
-    //     // & mh.language === "Java" 
-    //     // & mh.area === "Back-End" 
-    //     // & mh.stack ==="Mern"
-    //     // & mh.availability !== "Mañana"
-    //     ) {
-    //       mmm.push(mh);          
-    //       rows.push({
-    //         id: m._id,
-    //         fullname: m.fullname,
-    //         cohort: mh.selection,
-    //         language: mh.language,
-    //         availability: mh.availability,
-    //         stack: mh.stack,
-    //         area: mh.area,
-    //         experience: mh.experience,
-    //       });
-    //     }
-    //   });}
-
-    //MODIFCREACION
-    // COHORT
-
-    if(m.filterPassed === false){ 
-      m.cohortHistory?.map((mh) => {
-        if (mh.cohort === 6 & mh.assigned === false 
-          
-        // & mh.language === "Javascript" 
-        // & mh.area === "Design" 
+    if(m.filterPassed === true){ 
+      m.selectionHistory?.map((mh) => {
+        if (mh.selection === 4 & mh.assigned === false 
+        // & mh.language === "Java" 
+        // & mh.area === "Back-End" 
         // & mh.stack ==="Mern"
-        // & mh.availability === "Full-time"
+        // & mh.availability !== "Mañana"
         ) {
-          mmm.push(mh);
+          mmm.push(mh);          
           rows.push({
             id: m._id,
             fullname: m.fullname,
-            cohort: mh.cohort,
+            cohort: mh.selection,
             language: mh.language,
             availability: mh.availability,
             stack: mh.stack,
@@ -96,6 +72,33 @@ export default function DataTable({ members, loading }) {
           });
         }
       });}
+
+    //MODIFCREACION
+    // COHORT
+
+    // if(m.filterPassed === false){ 
+    //   m.cohortHistory?.map((mh) => {
+    //     if (mh.cohort === 7 & mh.assigned === false 
+          
+    //     // & mh.language === "Javascript" 
+    //     // & mh.area === "Design" 
+    //     // & mh.stack ==="Mern"
+    //     // & mh.availability === "Full-time"
+    //     ) {
+    //       mmm.push(mh);
+    //       rows.push({
+    //         id: m._id,
+    //         email: m.email,
+    //         fullname: m.fullname,
+    //         cohort: mh.cohort,
+    //         language: mh.language,
+    //         availability: mh.availability,
+    //         stack: mh.stack,
+    //         area: mh.area,
+    //         experience: mh.experience,
+    //       });
+    //     }
+    //   });}
 
     // alert(mmm.length);
   });

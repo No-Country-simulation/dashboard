@@ -54,10 +54,20 @@ export const mainListItems = (
       </NavLink>
     </ListItem>
     <ListItem button>
-      <ListItemIcon>
-        <BarChartIcon />
-      </ListItemIcon>
-      <ListItemText primary="Team Leaders" />
+      <NavLink exact to="/fullmembers" className="nav-link">
+        <ListItemIcon>
+          <ShoppingCartIcon />
+        </ListItemIcon>
+        <ListItemText primary="Miembros" />
+      </NavLink>
+    </ListItem>    
+    <ListItem button>
+      <NavLink exact to="/teamleaders" className="nav-link">
+        <ListItemIcon>
+          <BarChartIcon />
+        </ListItemIcon>
+        <ListItemText primary="Team Leaders" />
+      </NavLink>
     </ListItem>
     <ListItem button>
       <ListItemIcon>
