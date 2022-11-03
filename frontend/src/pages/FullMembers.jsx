@@ -11,8 +11,8 @@ export const FullMembers = () => {
   const getMembers = async () => {
 
     try {
-      // const res = await axios.get("http://localhost:5000/api/members/", {
-      const res = await axios.get("http://localhost:5000/api/selection/", {
+      const res = await axios.get("http://localhost:5000/api/members/", {
+      // const res = await axios.get("http://localhost:5000/api/selection/", {
         headers: { token: `Bearer ${token}` },
       });
       setMembers(res.data.getAllMembers);
