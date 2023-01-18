@@ -17,7 +17,12 @@ const columns = [
     width: 155,
     editable: true,
   },
-
+  {
+    field: "vertical",
+    headerName: "Vertical",
+    width: 155,
+    editable: true,
+  },
   {
     field: "availability",
     headerName: "Horario",
@@ -53,7 +58,7 @@ export default function DataTable({ members, loading }) {
     //SELECTION
     // if(m.filterPassed === true){ 
     //   m.selectionHistory?.map((mh) => {
-    //     if (mh.selection === 4 & mh.assigned === false 
+    //     if (mh.selection === 5 & mh.assigned === false 
     //     // & mh.language === "Java" 
     //     // & mh.area === "Back-End" 
     //     // & mh.stack ==="Mern"
@@ -78,7 +83,7 @@ export default function DataTable({ members, loading }) {
 
     if(m.filterPassed === false){ 
       m.cohortHistory?.map((mh) => {
-        if (mh.cohort === 8 & mh.assigned === false 
+        if (mh.cohort === 9 & mh.assigned === false 
           
         // & mh.language === "Javascript" 
         // & mh.area === "Design" 
@@ -91,6 +96,7 @@ export default function DataTable({ members, loading }) {
             email: m.email,
             fullname: m.fullname,
             cohort: mh.cohort,
+            vertical : mh.vertical,
             language: mh.language,
             availability: mh.availability,
             stack: mh.stack,

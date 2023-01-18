@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { Button } from "@material-ui/core";
 import Swal from "sweetalert2";
 
-export const AssignMembers = ({ selectId }) => {
+export const AssignMembersSelection = ({ selectId }) => {
   let token = localStorage.getItem("token") || "";
   const [teams, setTeams] = useState([]);
 
@@ -22,7 +22,7 @@ export const AssignMembers = ({ selectId }) => {
     //MODIFCREACION
     //FILTRAR POR NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
     res.data.getAllTeams.map((team) => {
-      if(team.name.indexOf("C") === 0 && team.name.indexOf("8") === 1 ){
+      if(team.name.indexOf("S") === 0 && team.name.indexOf("5") === 1 ){
         nameTeams.push(team);
       }
     });
@@ -51,22 +51,22 @@ export const AssignMembers = ({ selectId }) => {
       const idArray = selectId.toString().split(",");
       for (const id of idArray) {
 
-        await axios.put(
-          `http://localhost:5000/api/teams/asignar/${teamSelect}`, // (putMemberTeam)
-          { members: id },
-          {
-            headers: { token: `Bearer ${token}` },
-          }
-        );
-
-        // SELECTIONTEAM
         // await axios.put(
-        //   `http://localhost:5000/api/teams/selection/${teamSelect}`, // (putMemberSelectionTeam)
+        //   `http://localhost:5000/api/teams/asignar/${teamSelect}`, // (putMemberTeam)
         //   { members: id },
         //   {
         //     headers: { token: `Bearer ${token}` },
         //   }
         // );
+
+        // SELECTIONTEAM
+        await axios.put(
+          `http://localhost:5000/api/teams/selection/${teamSelect}`, // (putMemberSelectionTeam)
+          { members: id },
+          {
+            headers: { token: `Bearer ${token}` },
+          }
+        );
 
       }
 
@@ -116,6 +116,6 @@ export const AssignMembers = ({ selectId }) => {
   );
 };
 
-AssignMembers.propTypes = {
+AssignMembersSelection.propTypes = {
   selectId: PropTypes.array,
 };

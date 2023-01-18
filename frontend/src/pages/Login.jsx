@@ -13,6 +13,8 @@ import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import axios from "axios";
+import { useHistory } from "react-router-dom";
+
 
 function Copyright() {
   return (
@@ -49,7 +51,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function Login() {
   const classes = useStyles();
-
+  const history = useHistory();
   const [input, setInput] = useState({
     username: "",
     password: "",
@@ -68,8 +70,9 @@ export default function Login() {
    
 
     if (res.data) {
-      localStorage.setItem("token", res.data.accessToken);
       
+      localStorage.setItem("token", res.data.accessToken);
+      history.push("/");
     } else return null;
   };
 

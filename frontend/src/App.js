@@ -9,6 +9,7 @@ import { FullMembers } from "./pages/FullMembers";
 import { Teams } from "./pages/Teams";
 import { Selection } from "./pages/Selection";
 import CardDetail from "./Components/CardDetail";
+import { TeamsSelection } from "./pages/TeamsSelection";
 
 function App() {
   return (
@@ -27,6 +28,9 @@ function App() {
             </Route>
             <Route path="/teams">
               <Teams />
+            </Route>
+            <Route path="/teamsselection">
+              <TeamsSelection />
             </Route>
             <Route path="/selection">
               <Selection />

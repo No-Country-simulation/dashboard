@@ -55,7 +55,7 @@ const useStyles = makeStyles((theme) =>
   })
 );
 
-export const CardTeams = ({ team }) => {
+export const CardTeamsSelection = ({ team }) => {
   let token = localStorage.getItem("token") || "";
   const classes = useStyles();
 
@@ -74,39 +74,42 @@ export const CardTeams = ({ team }) => {
     let design = 0;
     let pm = 0;
     let tester = 0;
-
     
     team.members.forEach(m => {
       
-      const cohort = m.cohortHistory.find(c => c.cohort == "8");
+      const cohort = m.selectionHistory.find(c => c.selection == "5");
       if (cohort) {
         // info += `<li align="left"> <span> ${cohort.area}</span> &ensp; <span>${m.fullname}</span>`;
         output.push({
           area: cohort.area,
           fullname : m.fullname
         });
+
+        switch (cohort.area) {
+        case "Back-End":
+          back ++;
+          break;
+        case "Front-End":
+          front ++;
+          break;
+        case "Design":
+          design ++;
+          break;
+        case "Tester":
+          tester ++;
+          break;
+        case "PM":
+          pm ++;
+          break;
+        default:
+          break;
+        }
+
+
       }
       // info += `<tr><td>${m.fullname}</td><td>${m.email}</td><td>${m.country}</td></tr>`;
       
-      switch (cohort.area) {
-      case "Back-End":
-        back ++;
-        break;
-      case "Front-End":
-        front ++;
-        break;
-      case "Design":
-        design ++;
-        break;
-      case "Tester":
-        tester ++;
-        break;
-      case "PM":
-        pm ++;
-        break;
-      default:
-        break;
-      }
+
 
     });
 
@@ -136,7 +139,7 @@ export const CardTeams = ({ team }) => {
       // icon: "success",
       // title: `Equipo: ${team.name} Id: ${team._id}`,
         titleText: `Equipo: ${team.name} Id: ${team._id}`,
-        width: "40%",
+        width: "50%",
         html : info,      
         timer: 15000,
       // customClass: {
@@ -154,20 +157,20 @@ export const CardTeams = ({ team }) => {
   
     try{
       //COHORT
-      await axios.put(`http://localhost:5000/api/teams/remove/${team._id}`, 
-        {member: e.target.id}, 
-        {
-          headers: { token: `Bearer ${token}` },
-        }
-      );
-
-      // SELECTION
-      // await axios.put(`http://localhost:5000/api/teams/removeSelection/${team._id}`, 
+      // await axios.put(`http://localhost:5000/api/teams/remove/${team._id}`, 
       //   {member: e.target.id}, 
       //   {
       //     headers: { token: `Bearer ${token}` },
       //   }
-      // );  
+      // );
+
+      // SELECTION
+      await axios.put(`http://localhost:5000/api/teams/removeSelection/${team._id}`, 
+        {member: e.target.id}, 
+        {
+          headers: { token: `Bearer ${token}` },
+        }
+      );  
 
     }
     catch(err){
@@ -230,6 +233,7 @@ export const CardTeams = ({ team }) => {
   );
 };
 
-CardTeams.propTypes = {
+
+CardTeamsSelection.propTypes = {
   team: PropTypes.object
 };

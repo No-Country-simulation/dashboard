@@ -1,10 +1,10 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { CardTeams } from "../Components/CardTeams";
+import { CardTeamsSelection } from "../Components/CardTeamsSelection";
 import { LoadingCard } from "../Components/LoadingCard";
 import { ModalTeam } from "../Components/ModalTeam";
 
-export const Teams = () => {
+export const TeamsSelection = () => {
   const [teams, setTeams] = useState([]);
   const [loading, setLoading] = useState(false);
   let token = localStorage.getItem("token") || "";
@@ -15,8 +15,8 @@ export const Teams = () => {
       let nameTeams = [];
       
       // const res = await axios.get("http://localhost:5000/api/teams", {
-      const res = await axios.get("http://localhost:5000/api/teams/actual", {
-      // const res = await axios.get("http://localhost:5000/api/teams/actualselection", {
+      // const res = await axios.get("http://localhost:5000/api/teams/actual", {
+      const res = await axios.get("http://localhost:5000/api/teams/actualselection", {
         headers: { token: `Bearer ${token}` },
       });
 
@@ -33,17 +33,17 @@ export const Teams = () => {
 
       // res.data.getAllTeams.map((team) => {
 
-      res.data.getActualTeams.map((team) => {
-        if(team.name.indexOf("C") === 0 && team.name.indexOf("9") === 1 ){
-          nameTeams.push(team);
-        }
-      });
-      // console.log(res);
-      // res.data.getActualselTeams.map((team) => {
+      // res.data.getActualTeams.map((team) => {
       //   if(team.name.indexOf("S") === 0 && team.name.indexOf("5") === 1 ){
       //     nameTeams.push(team);
       //   }
       // });
+      // console.log(res);
+      res.data.getActualselTeams.map((team) => {
+        if(team.name.indexOf("S") === 0 && team.name.indexOf("6") === 1 ){
+          nameTeams.push(team);
+        }
+      });
 
       // TODOS LOS EQUIPOS
       // res.data.getAllTeams.map((team) => {
@@ -88,7 +88,7 @@ export const Teams = () => {
          
         {!loading
           ? Array(12).fill(<LoadingCard />)
-          : teams?.map((team) => <CardTeams key={team._id} team={team}/>)}
+          : teams?.map((team) => <CardTeamsSelection key={team._id} team={team}/>)}
 
         
       </div>

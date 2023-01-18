@@ -9,17 +9,17 @@ export const Selection = () => {
 
   const getMembers = async () => {
     try {
-      let members = [];  
-      const res = await axios.get("http://localhost:5000/api/members", {
+      // let members = [];  
+      const res = await axios.get("http://localhost:5000/api/selection/actual", {
         headers: { token: `Bearer ${token}` },
       });
       //todos los miembros con filterpassed === true
-      res.data.getAllMembers.forEach((m) => {
-        if(m.filterPassed === true) members.push(m);
-      });
+      // res.data.getAllSelectionMembers.forEach((m) => {
+      //   if(m.filterPassed === true) members.push(m);
+      // });
       
-      setMembers(members);
-
+      alert(res.data.getActualMembers.length);
+      setMembers(res.data.getActualMembers);
       setLoading(false);
 
 
