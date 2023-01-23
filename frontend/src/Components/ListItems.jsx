@@ -38,6 +38,7 @@ export const mainListItems = (
         <ListItemText primary="Miembros Cohorte" />
       </NavLink>
     </ListItem>
+    {/* Comentar */}
     {/* <ListItem button>
       <NavLink exact to="/cohorte" className="nav-link">
         <ListItemIcon>

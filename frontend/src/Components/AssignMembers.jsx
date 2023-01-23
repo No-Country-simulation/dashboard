@@ -22,7 +22,7 @@ export const AssignMembers = ({ selectId }) => {
     //MODIFCREACION
     //FILTRAR POR NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
     res.data.getAllTeams.map((team) => {
-      if(team.name.indexOf("C") === 0 && team.name.indexOf("8") === 1 ){
+      if(team.name.indexOf("C") === 0 && team.name.indexOf("9") === 1 ){
         nameTeams.push(team);
       }
     });
@@ -50,7 +50,7 @@ export const AssignMembers = ({ selectId }) => {
  
       const idArray = selectId.toString().split(",");
       for (const id of idArray) {
-
+        
         await axios.put(
           `http://localhost:5000/api/teams/asignar/${teamSelect}`, // (putMemberTeam)
           { members: id },

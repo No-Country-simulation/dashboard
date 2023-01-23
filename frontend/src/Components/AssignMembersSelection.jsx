@@ -22,7 +22,7 @@ export const AssignMembersSelection = ({ selectId }) => {
     //MODIFCREACION
     //FILTRAR POR NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
     res.data.getAllTeams.map((team) => {
-      if(team.name.indexOf("S") === 0 && team.name.indexOf("5") === 1 ){
+      if(team.name.indexOf("S") === 0 && team.name.indexOf("6") === 1 ){
         nameTeams.push(team);
       }
     });

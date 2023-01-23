@@ -18,7 +18,7 @@ export const Selection = () => {
       //   if(m.filterPassed === true) members.push(m);
       // });
       
-      alert(res.data.getActualMembers.length);
+      // alert(res.data.getActualMembers.length);
       setMembers(res.data.getActualMembers);
       setLoading(false);
 
