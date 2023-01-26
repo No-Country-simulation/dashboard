@@ -77,7 +77,7 @@ export const CardTeamsSelection = ({ team }) => {
     
     team.members.forEach(m => {
       
-      const cohort = m.selectionHistory.find(c => c.selection == "5");
+      const cohort = m.selectionHistory.find(c => c.selection == "6");
       if (cohort) {
         // info += `<li align="left"> <span> ${cohort.area}</span> &ensp; <span>${m.fullname}</span>`;
         output.push({
