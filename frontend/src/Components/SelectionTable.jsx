@@ -15,7 +15,7 @@ const columns = [
     headerName: "Vertical",
     width: 155,
     editable: true,
-  },  
+  },
   {
     field: "language",
     headerName: "Lenguaje",
@@ -54,17 +54,19 @@ export default function DataTable({ members, loading }) {
   const rows = [];
 
   members.forEach((m) => {
-
     //SELECTION
-    if(m.filterPassed === true){ 
+    if (m.filterPassed === true) {
       m.selectionHistory?.map((mh) => {
-        if (mh.selection === 6 & mh.assigned === false 
-        // & mh.language === "Java" 
-        // & mh.area === "Back-End" 
-        // & mh.stack ==="Mern"
-        // & mh.availability !== "Mañana"
+        if (
+          (mh.selection === 7) &
+          (mh.assigned === false)
+          // & mh.area === "Tester"
+          // & mh.area !== "Design"
+          // & mh.area !== "Tester"
+          // & mh.stack ==="Mern"
+          // & mh.availability === "Full-Time"
         ) {
-          // mmm.push(mh);          
+          // mmm.push(mh);
           rows.push({
             id: m._id,
             fullname: m.fullname,
@@ -77,7 +79,8 @@ export default function DataTable({ members, loading }) {
             experience: mh.experience,
           });
         }
-      });}
+      });
+    }
 
     //MODIFCREACION
     // alert(mmm.length);

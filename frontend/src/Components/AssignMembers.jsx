@@ -8,7 +8,6 @@ export const AssignMembers = ({ selectId }) => {
   let token = localStorage.getItem("token") || "";
   const [teams, setTeams] = useState([]);
 
- 
   const [teamSelect, setTeamSelect] = useState({
     selected: null,
   });
@@ -22,7 +21,11 @@ export const AssignMembers = ({ selectId }) => {
     //MODIFCREACION
     //FILTRAR POR NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
     res.data.getAllTeams.map((team) => {
-      if(team.name.indexOf("C") === 0 && team.name.indexOf("9") === 1 ){
+      if (
+        team.name.indexOf("C") === 0 &&
+        team.name.indexOf("1") === 1 &&
+        team.name.indexOf("0") === 2
+      ) {
         nameTeams.push(team);
       }
     });
@@ -39,7 +42,6 @@ export const AssignMembers = ({ selectId }) => {
   };
 
   const handleSubmit = async (e) => {
- 
     e.preventDefault();
 
     if (teamSelect === undefined || teamSelect === null) {
@@ -47,10 +49,9 @@ export const AssignMembers = ({ selectId }) => {
     }
     try {
       //COHORTTEAM
- 
+
       const idArray = selectId.toString().split(",");
       for (const id of idArray) {
-        
         await axios.put(
           `http://localhost:5000/api/teams/asignar/${teamSelect}`, // (putMemberTeam)
           { members: id },
@@ -67,10 +68,7 @@ export const AssignMembers = ({ selectId }) => {
         //     headers: { token: `Bearer ${token}` },
         //   }
         // );
-
       }
-
-
 
       Swal.fire({
         icon: "success",
@@ -100,7 +98,7 @@ export const AssignMembers = ({ selectId }) => {
           <option value="">Seleccione un equipo</option>
           {teams?.map(
             (
-              team //Agregar condicion de corte en 9
+              team //Agregar condicion de corte en 10
             ) => (
               <option key={team._id} value={team._id}>
                 {team.name}

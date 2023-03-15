@@ -9,16 +9,18 @@ export const TeamsSelection = () => {
   const [loading, setLoading] = useState(false);
   let token = localStorage.getItem("token") || "";
 
-
   const getTeams = async () => {
     try {
       let nameTeams = [];
-      
+
       // const res = await axios.get("http://localhost:5000/api/teams", {
       // const res = await axios.get("http://localhost:5000/api/teams/actual", {
-      const res = await axios.get("http://localhost:5000/api/teams/actualselection", {
-        headers: { token: `Bearer ${token}` },
-      });
+      const res = await axios.get(
+        "http://localhost:5000/api/teams/actualselection",
+        {
+          headers: { token: `Bearer ${token}` },
+        }
+      );
 
       //FILTRAR POR NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
 
@@ -40,7 +42,7 @@ export const TeamsSelection = () => {
       // });
       // console.log(res);
       res.data.getActualselTeams.map((team) => {
-        if(team.name.indexOf("S") === 0 && team.name.indexOf("6") === 1 ){
+        if (team.name.indexOf("S") === 0 && team.name.indexOf("7") === 1) {
           nameTeams.push(team);
         }
       });
@@ -52,11 +54,8 @@ export const TeamsSelection = () => {
       //   }
       // });
 
-      
-     
-      setTeams(nameTeams); 
+      setTeams(nameTeams);
       setLoading(true);
-
     } catch (error) {
       console.log(error);
     }
@@ -65,8 +64,6 @@ export const TeamsSelection = () => {
   useEffect(() => {
     getTeams();
   }, []);
-
-  
 
   return (
     <>
@@ -85,12 +82,11 @@ export const TeamsSelection = () => {
           gridAutoRows: "auto",
         }}
       >
-         
         {!loading
           ? Array(12).fill(<LoadingCard />)
-          : teams?.map((team) => <CardTeamsSelection key={team._id} team={team}/>)}
-
-        
+          : teams?.map((team) => (
+              <CardTeamsSelection key={team._id} team={team} />
+            ))}
       </div>
     </>
   );

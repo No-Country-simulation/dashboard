@@ -9,14 +9,13 @@ export const Teams = () => {
   const [loading, setLoading] = useState(false);
   let token = localStorage.getItem("token") || "";
 
-
   const getTeams = async () => {
     try {
       let nameTeams = [];
-      
+
       // const res = await axios.get("http://localhost:5000/api/teams", {
       const res = await axios.get("http://localhost:5000/api/teams/actual", {
-      // const res = await axios.get("http://localhost:5000/api/teams/actualselection", {
+        // const res = await axios.get("http://localhost:5000/api/teams/actualselection", {
         headers: { token: `Bearer ${token}` },
       });
 
@@ -34,7 +33,11 @@ export const Teams = () => {
       // res.data.getAllTeams.map((team) => {
 
       res.data.getActualTeams.map((team) => {
-        if(team.name.indexOf("C") === 0 && team.name.indexOf("9") === 1 ){
+        if (
+          team.name.indexOf("C") === 0 &&
+          team.name.indexOf("1") === 1 &&
+          team.name.indexOf("0") === 2
+        ) {
           nameTeams.push(team);
         }
       });
@@ -52,11 +55,8 @@ export const Teams = () => {
       //   }
       // });
 
-      
-     
-      setTeams(nameTeams); 
+      setTeams(nameTeams);
       setLoading(true);
-
     } catch (error) {
       console.log(error);
     }
@@ -65,8 +65,6 @@ export const Teams = () => {
   useEffect(() => {
     getTeams();
   }, []);
-
-  
 
   return (
     <>
@@ -85,12 +83,9 @@ export const Teams = () => {
           gridAutoRows: "auto",
         }}
       >
-         
         {!loading
           ? Array(12).fill(<LoadingCard />)
-          : teams?.map((team) => <CardTeams key={team._id} team={team}/>)}
-
-        
+          : teams?.map((team) => <CardTeams key={team._id} team={team} />)}
       </div>
     </>
   );

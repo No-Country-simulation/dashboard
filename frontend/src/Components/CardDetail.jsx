@@ -4,7 +4,6 @@ import PropTypes from "prop-types";
 // import PropTypes from "prop-types";
 import { useParams } from "react-router";
 
-
 // const useStyles = makeStyles((theme) =>
 //   createStyles({
 //     root: {
@@ -13,7 +12,7 @@ import { useParams } from "react-router";
 //       "& > *": {
 //         margin: theme.spacing(2),
 //         "&:hover": {
-//           backgroundColor: "#e909",
+//           backgroundColor: ",
 //         },
 //       },
 //     },
@@ -38,20 +37,13 @@ import { useParams } from "react-router";
 //   })
 // );
 
-
-export default function CardDetail () {
-
+export default function CardDetail() {
   // const classes = useStyles();
   const { id } = useParams();
 
-  return (
-    <div>
-       Equipo numero: {id}
-    </div>
-  );
+  return <div>Equipo numero: {id}</div>;
 }
 
 CardDetail.propTypes = {
-  id: PropTypes.string
+  id: PropTypes.string,
 };
-  

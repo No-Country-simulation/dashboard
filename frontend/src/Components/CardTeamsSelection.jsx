@@ -9,9 +9,6 @@ import { NavLink } from "react-router-dom";
 import Swal from "sweetalert2";
 // import TeamPopUp from "./TeamPopUp";
 
-
-
-
 const useStyles = makeStyles((theme) =>
   createStyles({
     root: {
@@ -74,48 +71,41 @@ export const CardTeamsSelection = ({ team }) => {
     let design = 0;
     let pm = 0;
     let tester = 0;
-    
-    team.members.forEach(m => {
-      
-      const cohort = m.selectionHistory.find(c => c.selection == "6");
+
+    team.members.forEach((m) => {
+      const cohort = m.selectionHistory.find((c) => c.selection == "7");
       if (cohort) {
         // info += `<li align="left"> <span> ${cohort.area}</span> &ensp; <span>${m.fullname}</span>`;
         output.push({
           area: cohort.area,
-          fullname : m.fullname
+          fullname: m.fullname,
         });
 
         switch (cohort.area) {
-        case "Back-End":
-          back ++;
-          break;
-        case "Front-End":
-          front ++;
-          break;
-        case "Design":
-          design ++;
-          break;
-        case "Tester":
-          tester ++;
-          break;
-        case "PM":
-          pm ++;
-          break;
-        default:
-          break;
+          case "Back-End":
+            back++;
+            break;
+          case "Front-End":
+            front++;
+            break;
+          case "Design":
+            design++;
+            break;
+          case "Tester":
+            tester++;
+            break;
+          case "PM":
+            pm++;
+            break;
+          default:
+            break;
         }
-
-
       }
       // info += `<tr><td>${m.fullname}</td><td>${m.email}</td><td>${m.country}</td></tr>`;
-      
-
-
     });
 
     if (output) {
-      
-      output.sort((a,b) => { 
+      output.sort((a, b) => {
         if (a.area < b.area) {
           return -1;
         }
@@ -127,75 +117,69 @@ export const CardTeamsSelection = ({ team }) => {
       info += "<ol>";
 
       for (let i = 0; i < output.length; i++) {
-        
         info += `<li align="left"> <span> ${output[i].area}</span> &ensp; <span>${output[i].fullname}</span>`;
-        
       }
 
       info += "</ol>";
       info += `<br><br>Front: ${front}<br>Back: ${back}<br>Design: ${design}<br>Tester: ${tester} <br>PM: ${pm}`;
 
       Swal.fire({
-      // icon: "success",
-      // title: `Equipo: ${team.name} Id: ${team._id}`,
+        // icon: "success",
+        // title: `Equipo: ${team.name} Id: ${team._id}`,
         titleText: `Equipo: ${team.name} Id: ${team._id}`,
         width: "50%",
-        html : info,      
+        html: info,
         timer: 15000,
-      // customClass: {
-      //   popup: 'format-pre'
-      // }
+        // customClass: {
+        //   popup: 'format-pre'
+        // }
       });
     }
 
     // info += "</table>";
-    
-
   };
   const handleDelete = async (e) => {
     e.preventDefault();
-  
-    try{
+
+    try {
       //COHORT
-      // await axios.put(`http://localhost:5000/api/teams/remove/${team._id}`, 
-      //   {member: e.target.id}, 
+      // await axios.put(`http://localhost:5000/api/teams/remove/${team._id}`,
+      //   {member: e.target.id},
       //   {
       //     headers: { token: `Bearer ${token}` },
       //   }
       // );
 
       // SELECTION
-      await axios.put(`http://localhost:5000/api/teams/removeSelection/${team._id}`, 
-        {member: e.target.id}, 
+      await axios.put(
+        `http://localhost:5000/api/teams/removeSelection/${team._id}`,
+        { member: e.target.id },
         {
           headers: { token: `Bearer ${token}` },
         }
-      );  
-
-    }
-    catch(err){
+      );
+    } catch (err) {
       console.log(err);
     }
-      
   };
-
-
 
   return (
     <Box className={classes.root}>
       <Card>
-        <NavLink to={`/teams/${team._id}`} className={classes.link} onClick={handleClick} id={team.name}>
+        <NavLink
+          to={`/teams/${team._id}`}
+          className={classes.link}
+          onClick={handleClick}
+          id={team.name}
+        >
           <CardHeader
             avatar={<Avatar>{team?.members.length}</Avatar>}
             className={classes.cardHeader}
             title={team.name}
-            
           />
         </NavLink>
         {team?.members.map((member) => (
-          
           <CardContent className={classes.content} key={member._id}>
-            
             <div
               style={{
                 display: "flex",
@@ -205,35 +189,33 @@ export const CardTeamsSelection = ({ team }) => {
               <div
                 style={{
                   color:
-                      (member.area === "Full-Stack" && "#158EFA") ||
-                      (member.area === "Front-End" && "#24BE02") ||
-                      (member.area === "Back-End" && "#BD05AF"),
+                    (member.area === "Full-Stack" && "#158EFA") ||
+                    (member.area === "Front-End" && "#24BE02") ||
+                    (member.area === "Back-End" && "#BD05AF"),
                 }}
-                
               >
                 {member.fullname}{" "}
-                  
               </div>
               <div
                 style={{ display: "flex", justifyContent: "flex-end", flex: 1 }}
               >
-                  
-                <button onClick={handleDelete} id={member._id} className={classes.btn} style={{color: "red", fontSize:"10px"}}>
+                <button
+                  onClick={handleDelete}
+                  id={member._id}
+                  className={classes.btn}
+                  style={{ color: "red", fontSize: "10px" }}
+                >
                   Delete
                 </button>
-                
               </div>
             </div>
-           
           </CardContent>
-          
         ))}
       </Card>
     </Box>
   );
 };
 
-
 CardTeamsSelection.propTypes = {
-  team: PropTypes.object
+  team: PropTypes.object,
 };
