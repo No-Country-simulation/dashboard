@@ -90,18 +90,17 @@ export default function DataTable({ members, loading }) {
         if (
           (mh.cohort === 10) &
           (mh.assigned === false)
-
           // & mh.language === "Javascript"
-          // & mh.area !== "Design"
-          // // & mh.area === "Tester"
-          // // & mh.area === "PM"
-          // & mh.area === "No Code"
+          // (mh.area === "Design")
+          // (mh.area === "Tester")
+          // (mh.area === "PM")
+          // (mh.area === "No Code")
           // // & mh.area !== "DevOps"
           // & mh.area !== "Front-End"
-          // & mh.area === "Front-End"
-          // & mh.stack ==="Mern"
-          // & mh.availability === "Tarde"
-          // & mh.experience === "mayor a 12 meses"
+          // (mh.area === "Back-End")
+          // (mh.stack === "React")
+          // (mh.availability === "Full-time")
+          // (mh.experience === "mayor a 12 meses")
         ) {
           mmm.push(mh);
           rows.push({
