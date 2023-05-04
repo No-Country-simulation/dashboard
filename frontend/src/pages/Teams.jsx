@@ -34,13 +34,15 @@ export const Teams = () => {
 
       res.data.getActualTeams.map((team) => {
         if (
-          team.name.indexOf("C") === 0 &&
-          team.name.indexOf("1") === 1 &&
-          team.name.indexOf("0") === 2
+          // team.name.indexOf("C") === 0 &&
+          // team.name.indexOf("1") === 1 &&
+          // team.name.indexOf("1") === 2
+          team.name.startsWith("C11")
         ) {
           nameTeams.push(team);
         }
       });
+
       // console.log(res);
       // res.data.getActualselTeams.map((team) => {
       //   if(team.name.indexOf("S") === 0 && team.name.indexOf("5") === 1 ){

@@ -39,8 +39,8 @@ const columns = [
     width: 155,
   },
   {
-    field: "cohort",
-    headerName: "cohort",
+    field: "number",
+    headerName: "number",
     width: 100,
   },
   {
@@ -58,7 +58,7 @@ export default function DataTable({ members, loading }) {
     if (m.filterPassed === true) {
       m.selectionHistory?.map((mh) => {
         if (
-          (mh.selection === 7) &
+          (mh.selection === 8) &
           (mh.assigned === false)
           // & mh.area === "Tester"
           // & mh.area !== "Design"
@@ -76,6 +76,7 @@ export default function DataTable({ members, loading }) {
             availability: mh.availability,
             stack: mh.stack,
             area: mh.area,
+            number: m.number,
             experience: mh.experience,
           });
         }

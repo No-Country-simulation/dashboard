@@ -14,14 +14,17 @@ export const AssignMembersSelection = ({ selectId }) => {
 
   const getTeams = async () => {
     let nameTeams = [];
-    const res = await axios.get("http://localhost:5000/api/teams", {
-      headers: { token: `Bearer ${token}` },
-    });
+    const res = await axios.get(
+      "http://localhost:5000/api/teams/actualselection",
+      {
+        headers: { token: `Bearer ${token}` },
+      }
+    );
 
     //MODIFCREACION
     //FILTRAR POR NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
-    res.data.getAllTeams.map((team) => {
-      if (team.name.indexOf("S") === 0 && team.name.indexOf("7") === 1) {
+    res.data.getActualselTeams.map((team) => {
+      if (team.name.indexOf("S") === 0 && team.name.indexOf("8") === 1) {
         nameTeams.push(team);
       }
     });

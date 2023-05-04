@@ -42,7 +42,7 @@ export const TeamsSelection = () => {
       // });
       // console.log(res);
       res.data.getActualselTeams.map((team) => {
-        if (team.name.indexOf("S") === 0 && team.name.indexOf("7") === 1) {
+        if (team.name.indexOf("S") === 0 && team.name.indexOf("8") === 1) {
           nameTeams.push(team);
         }
       });
