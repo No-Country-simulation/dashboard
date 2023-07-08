@@ -60,6 +60,13 @@ export default function DataTable({ members, loading }) {
         if (
           (mh.selection === 9) &
           (mh.assigned === false)
+          // (mh.area !== "Design") &
+          // (mh.area === "Tester")
+          // (mh.area === "PM")
+          // (mh.vertical !== "No Code") &
+          // (mh.area !== "PM") &
+          // (mh.area !== "Tester") &
+          // (mh.vertical === "No Code")
           // (mh.availability === "Tarde")
           // & mh.area !== "Design"
           // (mh.area !== "No Code")
