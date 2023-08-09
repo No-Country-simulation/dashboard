@@ -42,7 +42,7 @@ export const TeamsSelection = () => {
       // });
       // console.log(res);
       res.data.getActualselTeams.map((team) => {
-        if (team.name.indexOf("S") === 0 && team.name.indexOf("9") === 1) {
+        if (team.name.startsWith("S10")) {
           nameTeams.push(team);
         }
       });

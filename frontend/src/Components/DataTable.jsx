@@ -10,12 +10,12 @@ const columns = [
     width: 155,
     editable: true,
   },
-  // {
-  //   field: "email",
-  //   headerName: "email",
-  //   width: 155,
-  //   editable: true,
-  // },
+  {
+    field: "email",
+    headerName: "email",
+    width: 155,
+    editable: true,
+  },
   {
     field: "language",
     headerName: "Lenguaje",
@@ -88,7 +88,7 @@ export default function DataTable({ members, loading }) {
     if (m.filterPassed === false) {
       m.cohortHistory?.map((mh) => {
         if (
-          (mh.cohort === 12) &
+          (mh.cohort === 13) &
           (mh.assigned === false)
           // (mh.language === "Java") &
           // (mh.area !== "Design") &
