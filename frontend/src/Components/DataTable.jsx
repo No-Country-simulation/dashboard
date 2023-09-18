@@ -10,12 +10,12 @@ const columns = [
     width: 155,
     editable: true,
   },
-  {
-    field: "email",
-    headerName: "email",
-    width: 155,
-    editable: true,
-  },
+  // {
+  //   field: "email",
+  //   headerName: "email",
+  //   width: 155,
+  //   editable: true,
+  // },
   {
     field: "language",
     headerName: "Lenguaje",
@@ -90,19 +90,18 @@ export default function DataTable({ members, loading }) {
         if (
           (mh.cohort === 13) &
           (mh.assigned === false)
-          // (mh.language === "Java") &
-          // (mh.area !== "Design") &
+          // (mh.area !== "Design")
           // // (mh.stack === "Ninguna de estas") &
           // // (mh.area === "PM")
-          // (mh.vertical == "No Code")
+          // (mh.vertical !== "No Code") &
           // (mh.area !== "PM") &
-          // (mh.area === "Tester")
+          // (mh.area !== "Tester") &
           // (mh.vertical !== "No Code")
-          // (mh.area !== "Design")
+          // (mh.area !== "Design") &
           // & mh.area !== "Front-End"
-          // (mh.area === "Back-End")
+          // (mh.area === "Front-End") &
           // (mh.stack === "React") &
-          // (mh.availability === "Full-time")
+          // (mh.availability === "Tarde")
           // (mh.experience === "mayor a 12 meses")
         ) {
           mmm.push(mh);

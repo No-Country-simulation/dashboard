@@ -7,7 +7,13 @@ const columns = [
   {
     field: "fullname",
     headerName: "Fullname",
-    width: 155,
+    width: 185,
+    editable: true,
+  },
+  {
+    field: "email",
+    headerName: "email",
+    width: 215,
     editable: true,
   },
   {
@@ -16,6 +22,7 @@ const columns = [
     width: 155,
     editable: true,
   },
+
   {
     field: "language",
     headerName: "Lenguaje",
@@ -60,14 +67,13 @@ export default function DataTable({ members, loading }) {
         if (
           (mh.selection === 10) &
           (mh.assigned === false)
-          // (mh.area !== "Design") &
           // (mh.area === "Tester")
           // (mh.area === "PM")
           // (mh.vertical !== "No Code") &
           // (mh.area !== "PM") &
           // (mh.area !== "Tester") &
           // (mh.vertical === "No Code")
-          // (mh.availability === "Tarde")
+          // (mh.availability === "Noche")
           // & mh.area !== "Design"
           // (mh.area !== "No Code")
           // & mh.stack ==="Mern"
@@ -79,6 +85,7 @@ export default function DataTable({ members, loading }) {
             fullname: m.fullname,
             cohort: mh.selection,
             vertical: mh.vertical,
+            email: m.email,
             language: mh.language,
             availability: mh.availability,
             stack: mh.stack,
