@@ -65,7 +65,7 @@ export default function DataTable({ members, loading }) {
     if (m.filterPassed === true) {
       m.selectionHistory?.map((mh) => {
         if (
-          (mh.selection === 10) &
+          (mh.selection === 11) &
           (mh.assigned === false)
           // (mh.area === "Tester")
           // (mh.area === "PM")
