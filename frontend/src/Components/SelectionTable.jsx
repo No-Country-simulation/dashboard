@@ -10,12 +10,12 @@ const columns = [
     width: 185,
     editable: true,
   },
-  {
-    field: "email",
-    headerName: "email",
-    width: 215,
-    editable: true,
-  },
+  // {
+  //   field: "email",
+  //   headerName: "email",
+  //   width: 215,
+  //   editable: true,
+  // },
   {
     field: "vertical",
     headerName: "Vertical",
@@ -66,10 +66,14 @@ export default function DataTable({ members, loading }) {
       m.selectionHistory?.map((mh) => {
         if (
           (mh.selection === 11) &
-          (mh.assigned === false)
-          // (mh.area === "Tester")
+          (mh.assigned === false) 
+          // &&
+          // (mh.area == "PM")
+          //  &&
+          // // (mh.language !== "PHP")
+          // mh.stack !== "Nextjs"
           // (mh.area === "PM")
-          // (mh.vertical !== "No Code") &
+          // (mh.vertical == "No Code") 
           // (mh.area !== "PM") &
           // (mh.area !== "Tester") &
           // (mh.vertical === "No Code")

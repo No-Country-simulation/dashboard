@@ -88,10 +88,13 @@ export default function DataTable({ members, loading }) {
     if (m.filterPassed === false) {
       m.cohortHistory?.map((mh) => {
         if (
-          (mh.cohort === 14) &
-          (mh.assigned === false)
-          // (mh.area !== "Design")
-          // // (mh.stack === "Ninguna de estas") &
+          (mh.cohort === 14)  &&
+          (mh.assigned === false) 
+          // (mh.area !== "PM")  
+          // (mh.vertical !== "No Code")
+          // (mh.stack == "Vue") 
+          // (mh.stack == "Node" || mh.stack == "Express")
+          // (mh.stack === "Nest") 
           // // (mh.area === "PM")
           // (mh.vertical !== "No Code") &
           // (mh.area !== "PM") &
@@ -101,7 +104,7 @@ export default function DataTable({ members, loading }) {
           // & mh.area !== "Front-End"
           // (mh.area === "Front-End") &
           // (mh.stack === "React") &
-          // (mh.availability === "Tarde")
+          // (mh.availability !== "Tarde")
           // (mh.experience === "mayor a 12 meses")
         ) {
           mmm.push(mh);
