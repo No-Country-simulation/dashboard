@@ -88,7 +88,7 @@ export default function DataTable({ members, loading }) {
     if (m.filterPassed === false) {
       m.cohortHistory?.map((mh) => {
         if (
-          (mh.cohort === 14)  &&
+          (mh.cohort === 15)  &&
           (mh.assigned === false) 
           // (mh.area !== "PM")  
           // (mh.vertical !== "No Code")

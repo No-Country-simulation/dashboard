@@ -24,7 +24,7 @@ export const AssignMembersSelection = ({ selectId }) => {
     //MODIFCREACION
     //FILTRAR POR NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
     res.data.getActualselTeams.map((team) => {
-      if (team.name.startsWith("S11")) {
+      if (team.name.startsWith("S12")) {
         nameTeams.push(team);
       }
     });
