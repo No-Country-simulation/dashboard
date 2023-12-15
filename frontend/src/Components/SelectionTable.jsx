@@ -70,18 +70,7 @@ export default function DataTable({ members, loading }) {
           // &&
           // (mh.area == "PM")
           //  &&
-          // // (mh.language !== "PHP")
-          // mh.stack !== "Nextjs"
-          // (mh.area === "PM")
-          // (mh.vertical == "No Code") 
-          // (mh.area !== "PM") &
-          // (mh.area !== "Tester") &
-          // (mh.vertical === "No Code")
-          // (mh.availability === "Noche")
-          // & mh.area !== "Design"
-          // (mh.area !== "No Code")
           // & mh.stack ==="Mern"
-          // & mh.availability === "Full-Time"
         ) {
           // mmm.push(mh);
           rows.push({

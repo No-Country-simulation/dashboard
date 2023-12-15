@@ -90,21 +90,22 @@ export default function DataTable({ members, loading }) {
         if (
           (mh.cohort === 15)  &&
           (mh.assigned === false) 
-          // (mh.area !== "PM")  
+          // (mh.area !== "PM")  &
           // (mh.vertical !== "No Code")
-          // (mh.stack == "Vue") 
+          // (mh.stack !== "aReact") &
+          // (mh.language !== "sPHP")  &
           // (mh.stack == "Node" || mh.stack == "Express")
           // (mh.stack === "Nest") 
-          // // (mh.area === "PM")
-          // (mh.vertical !== "No Code") &
+          // (mh.area === "Design") &
+          // (mh.vertical !== "No Code") 
           // (mh.area !== "PM") &
           // (mh.area !== "Tester") &
           // (mh.vertical !== "No Code")
-          // (mh.area !== "Design") &
-          // & mh.area !== "Front-End"
-          // (mh.area === "Front-End") &
+          
+                    // & mh.area !== "Front-End"
+          // (mh.area == "Front-End") 
           // (mh.stack === "React") &
-          // (mh.availability !== "Tarde")
+          // (mh.availability == "Full-time")
           // (mh.experience === "mayor a 12 meses")
         ) {
           mmm.push(mh);
