@@ -37,7 +37,7 @@ export const Teams = () => {
           // team.name.indexOf("C") === 0 &&
           // team.name.indexOf("1") === 1 &&
           // team.name.indexOf("1") === 2
-          team.name.startsWith("C15")
+          team.name.startsWith("C16")
         ) {
           nameTeams.push(team);
         }
