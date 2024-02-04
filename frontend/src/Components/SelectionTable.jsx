@@ -66,9 +66,13 @@ export default function DataTable({ members, loading }) {
       m.selectionHistory?.map((mh) => {
         if (
           (mh.selection === 13) &
-          (mh.assigned === false) 
+          (mh.assigned === false)   
+          // (mh.vertical == "Mobile")
+          // (mh.vertical == "Data - BI")
+          // (mh.language == "Python") &&
+          // (mh.area !== "UX/UI") 
           // &&
-          // (mh.area == "PM")
+          // (mh.availability !== "Mañana")
           //  &&
           // & mh.stack ==="Mern"
         ) {
