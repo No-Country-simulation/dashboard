@@ -26,7 +26,7 @@ export const AssignMembers = ({ selectId }) => {
         // team.name.indexOf("C") === 0 &&
         // team.name.indexOf("1") === 1 &&
         // team.name.indexOf("1") === 2
-        team.name.startsWith("C16")
+        team.name.startsWith("C17")
       ) {
         nameTeams.push(team);
       }

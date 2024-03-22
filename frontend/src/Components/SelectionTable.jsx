@@ -65,16 +65,18 @@ export default function DataTable({ members, loading }) {
     if (m.filterPassed === true) {
       m.selectionHistory?.map((mh) => {
         if (
-          (mh.selection === 13) &
+          (mh.selection === 14) &
           (mh.assigned === false)   
-          // (mh.vertical == "Mobile")
-          // (mh.vertical == "Data - BI")
-          // (mh.language == "Python") &&
-          // (mh.area !== "UX/UI") 
-          // &&
-          // (mh.availability !== "Mañana")
-          //  &&
-          // & mh.stack ==="Mern"
+          // && (mh.area == "Back-End")
+          // && (mh.vertical == "Web App")
+          // && (mh.area == "Front-End")
+          // // (mh.vertical == "Data - BI")
+          // && (mh.language !== "sJava") 
+          // // (mh.area !== "UX/UI") 
+          // // &&
+          // && (mh.availability == "Noche")
+          // //  &&
+          // & mh.stack =="React"
         ) {
           // mmm.push(mh);
           rows.push({
