@@ -65,7 +65,7 @@ export default function DataTable({ members, loading }) {
     if (m.filterPassed === true) {
       m.selectionHistory?.map((mh) => {
         if (
-          (mh.selection === 14) &
+          (mh.selection === 15) &
           (mh.assigned === false)   
           // && (mh.area == "Back-End")
           // && (mh.vertical == "Web App")

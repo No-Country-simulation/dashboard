@@ -88,7 +88,7 @@ export default function DataTable({ members, loading }) {
     if (m.filterPassed === false) {
       m.cohortHistory?.map((mh) => {
         if (
-          (mh.cohort === 17)  &&
+          (mh.cohort === 18)  &&
           (mh.assigned === false)
       
           // && (mh.vertical == "Mobile")
