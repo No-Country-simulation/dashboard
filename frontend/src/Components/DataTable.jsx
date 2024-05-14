@@ -91,12 +91,13 @@ export default function DataTable({ members, loading }) {
           (mh.cohort === 18)  &&
           (mh.assigned === false)
       
-          // && (mh.vertical == "Mobile")
-          // && (mh.area !== "UX/UI") 
-          // && (mh.area == "Project Manager") 
-          // && (mh.language == "Javascript")
-          // && (mh.availability == "Full-Time")
-          // && mh.stack == "React"
+          // && (mh.vertical == "Web App")
+          // && (mh.area == "UX/UI") 
+          // // && mh.stack !== "React"
+          // // // && (mh.area == "Project Manager") 
+          // && (mh.language !== "Jaasdvascript")
+          // && (mh.availability == "Tarde")
+          
           // (mh.experience === "mayor a 12 meses")
         ) {
           mmm.push(mh);

@@ -67,16 +67,16 @@ export default function DataTable({ members, loading }) {
         if (
           (mh.selection === 15) &
           (mh.assigned === false)   
-          // && (mh.area == "Back-End")
-          // && (mh.vertical == "Web App")
+          // && (mh.area !== "Front-End")
+          // && (mh.vertical !== "Web App")
           // && (mh.area == "Front-End")
           // // (mh.vertical == "Data - BI")
-          // && (mh.language !== "sJava") 
-          // // (mh.area !== "UX/UI") 
+          // && (mh.language !== "sPHP") 
+          // && (mh.area !== "QA Tester") 
           // // &&
           // && (mh.availability == "Noche")
           // //  &&
-          // & mh.stack =="React"
+          //  & mh.stack !== "Reasdact"
         ) {
           // mmm.push(mh);
           rows.push({

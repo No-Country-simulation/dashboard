@@ -93,7 +93,7 @@ export const CardTeams = ({ team }) => {
         case "Design":
           design++;
           break;
-        case "Tester":
+        case "QA Tester":
           tester++;
           break;
         case "PM":
