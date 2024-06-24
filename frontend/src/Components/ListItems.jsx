@@ -66,6 +66,23 @@ export const mainListItems = (
       </NavLink>
     </ListItem>
 
+    <ListItem button>
+      <NavLink exact to="/hackathon" className="nav-link">
+        <ListItemIcon>
+          <Diversity1TwoToneIcon />
+        </ListItemIcon>
+        <ListItemText primary="Miembros Hackathon" />
+      </NavLink>
+    </ListItem>
+
+    <ListItem button>
+      <NavLink exact to="/teamshackathon" className="nav-link">
+        <ListItemIcon>
+          <Diversity1TwoToneIcon />
+        </ListItemIcon>
+        <ListItemText primary="Teams Hackathon" />
+      </NavLink>
+    </ListItem>
     {/* <ListItem button>
       <NavLink exact to="/fullmembers" className="nav-link">
         <ListItemIcon>

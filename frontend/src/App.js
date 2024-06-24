@@ -8,8 +8,10 @@ import { Members } from "./pages/Members";
 import { FullMembers } from "./pages/FullMembers";
 import { Teams } from "./pages/Teams";
 import { Selection } from "./pages/Selection";
+import { Hackathon } from "./pages/Hackathon";
 import CardDetail from "./Components/CardDetail";
 import { TeamsSelection } from "./pages/TeamsSelection";
+import { TeamsHackathon } from "./pages/TeamsHackathon";
 
 function App() {
   return (
@@ -41,11 +43,17 @@ function App() {
             <Route path="/teamleaders">
               <Selection />
             </Route>
+            <Route path="/hackathon">
+              <Hackathon />
+            </Route>
+            <Route path="/teamshackathon">
+              <TeamsHackathon />
+            </Route>
           </Switch>
         </div>
         <Route path="/teams/:id">
           <CardDetail />
-        </Route> 
+        </Route>
       </Dashboard>
     </Router>
   );
