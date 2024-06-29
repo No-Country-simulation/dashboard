@@ -73,7 +73,7 @@ export const CardTeams = ({ team }) => {
     let tester = 0;
 
     team.members.forEach((m) => {
-      const cohort = m.cohortHistory.find((c) => c.cohort == "18");
+      const cohort = m.cohortHistory.find((c) => c.cohort == "19");
       if (cohort) {
         // info += `<li align="left"> <span> ${cohort.area}</span> &ensp; <span>${m.fullname}</span>`;
         output.push({
@@ -90,7 +90,7 @@ export const CardTeams = ({ team }) => {
         case "Front-End":
           front++;
           break;
-        case "Design":
+        case "UX/UI":
           design++;
           break;
         case "QA Tester":

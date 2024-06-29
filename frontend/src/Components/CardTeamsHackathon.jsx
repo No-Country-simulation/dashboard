@@ -90,13 +90,23 @@ export const CardTeamsHackathon = ({ team }) => {
             break;
           case "Design":
             design++;
+            break;         
+             case "UX/UI":
+            design++;
             break;
           case "Tester":
             tester++;
             break;
+            case "QA Tester":
+              tester++;
+              break;
           case "PM":
             pm++;
             break;
+            case "Project Manager":
+              pm++;
+              break;
+       
           default:
             break;
         }

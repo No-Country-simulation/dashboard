@@ -73,7 +73,7 @@ export const CardTeamsSelection = ({ team }) => {
     let tester = 0;
 
     team.members.forEach((m) => {
-      const cohort = m.selectionHistory.find((c) => c.selection == "15");
+      const cohort = m.selectionHistory.find((c) => c.selection == "16");
       if (cohort) {
         // info += `<li align="left"> <span> ${cohort.area}</span> &ensp; <span>${m.fullname}</span>`;
         output.push({
@@ -88,7 +88,7 @@ export const CardTeamsSelection = ({ team }) => {
           case "Front-End":
             front++;
             break;
-          case "Design":
+          case "UX/UI":
             design++;
             break;
           case "Tester":
@@ -97,7 +97,9 @@ export const CardTeamsSelection = ({ team }) => {
           case "PM":
             pm++;
             break;
-          default:
+            case "Project Manager":
+              pm++;
+              break;          default:
             break;
         }
       }

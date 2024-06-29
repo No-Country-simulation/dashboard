@@ -64,7 +64,8 @@ export default function DataTable({ members, loading }) {
         if (
           (mh.hackathon == 1) &
           (mh.assigned === false)   
-          // && (mh.area !== "Front-End")
+          // && (mh.area == "UX/UI")
+          
           // && (mh.vertical !== "Web App")
           // && (mh.area == "Front-End")
           // // (mh.vertical == "Data - BI")

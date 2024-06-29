@@ -88,14 +88,14 @@ export default function DataTable({ members, loading }) {
     if (m.filterPassed === false) {
       m.cohortHistory?.map((mh) => {
         if (
-          (mh.cohort === 18)  &&
+          (mh.cohort === 19)  &&
           (mh.assigned === false)
       
-          // && (mh.vertical == "Web App")
-          // && (mh.area == "UX/UI") 
+          // && (mh.vertical == "Mobile")
+          // && ((mh.area !== "UX/UI") && (mh.area !== "QA Tester"))
           // // && mh.stack !== "React"
           // // // && (mh.area == "Project Manager") 
-          // && (mh.language !== "Jaasdvascript")
+          // && (mh.language !== "Jasva")
           // && (mh.availability == "Tarde")
           
           // (mh.experience === "mayor a 12 meses")
