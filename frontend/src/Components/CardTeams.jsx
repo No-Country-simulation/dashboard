@@ -73,7 +73,7 @@ export const CardTeams = ({ team }) => {
     let tester = 0;
 
     team.members.forEach((m) => {
-      const cohort = m.cohortHistory.find((c) => c.cohort == "19");
+      const cohort = m.cohortHistory.find((c) => c.cohort == "20");
       if (cohort) {
         // info += `<li align="left"> <span> ${cohort.area}</span> &ensp; <span>${m.fullname}</span>`;
         output.push({

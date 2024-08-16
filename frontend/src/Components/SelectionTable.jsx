@@ -65,12 +65,12 @@ export default function DataTable({ members, loading }) {
     if (m.filterPassed === true) {
       m.selectionHistory?.map((mh) => {
         if (
-          (mh.selection === 16) &
+          (mh.selection === 17) &
           (mh.assigned === false)   
-          // && (mh.area == "QA Tester")
+          // && (mh.area == "UX/UI")
           // && (mh.vertical == "Web App")
           // && (mh.area == "Front-End")
-          // // (mh.vertical == "Data - BI")
+          // && (mh.vertical == "No Code")
           // && (mh.language !== "sPHP") 
           // && (mh.area !== "QA Tester") 
           // // &&
