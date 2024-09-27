@@ -24,7 +24,7 @@ export const AssignMembersHackathon = ({ selectId }) => {
     //MODIFCREACION
     //FILTRAR POR NOMBRE DE EQUIPO PARA TENER UNA VISUALIZACION CONDICIONAL
     res.data.getActualHackathonTeams.map((team) => {
-      if ( (team.name.startsWith("H1")) ) {
+      if ( (team.name.startsWith("H2")) ) {
         nameTeams.push(team);
       }
     });

@@ -73,7 +73,7 @@ export const CardTeamsHackathon = ({ team }) => {
     let tester = 0;
 
     team.members.forEach((m) => {
-      const cohort = m.hackathonMVPHistory.find((c) => c.hackathon == "1");
+      const cohort = m.hackathonMVPHistory.find((c) => c.hackathon == "2");
       if (cohort) {
         // info += `<li align="left"> <span> ${cohort.area}</span> &ensp; <span>${m.fullname}</span>`;
         output.push({
