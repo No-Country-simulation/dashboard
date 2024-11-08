@@ -88,7 +88,7 @@ export default function DataTable({ members, loading }) {
     if (m.filterPassed === false) {
       m.cohortHistory?.map((mh) => {
         if (
-          (mh.cohort === 21)  &&
+          (mh.cohort === 22)  &&
           (mh.assigned === false)
       // && (mh.area == "QA Tester" )
           // && (mh.area == "UX/UI")

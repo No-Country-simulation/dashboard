@@ -62,7 +62,7 @@ export default function DataTable({ members, loading }) {
 
       m.hackathonMVPHistory?.map((mh) => {
         if (
-          (mh.hackathon == 2) &
+          (mh.hackathon == 3) &
           (mh.assigned === false)   
           // && (mh.area == "UX/UI")
           

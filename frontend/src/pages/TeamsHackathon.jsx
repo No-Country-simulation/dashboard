@@ -42,7 +42,7 @@ export const TeamsHackathon = () => {
       // });
       // console.log(res);
       res.data.getActualHackathonTeams.map((team) => {
-        if (team.name.startsWith("H2")) {
+        if (team.name.startsWith("H3")) {
           nameTeams.push(team);
         }
       });
