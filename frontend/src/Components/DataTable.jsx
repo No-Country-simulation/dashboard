@@ -90,13 +90,13 @@ export default function DataTable({ members, loading }) {
         if (
           (mh.cohort === 22)  &&
           (mh.assigned === false)
-      // && (mh.area == "QA Tester" )
+      // && (mh.vertical == "Data - BI" )
           // && (mh.area == "UX/UI")
-          // && ((mh.area !== "UX/UI") && (mh.area !== "QA Tester"))
+          // && ((mh.area !== "UX/UI") && (mh.area !== "QA Tester") && (mh.area !== "DevOps"))
           // // && mh.stack !== "React"
           // // // && (mh.area == "Project Manager") 
-          && (mh.language !== "Jasdava")
-          // && (mh.availability == "Tarde")
+          // && (mh.language !== "Jasdava")
+          // && (mh.availability == "Noche")
           
           // (mh.experience === "mayor a 12 meses")
         ) {

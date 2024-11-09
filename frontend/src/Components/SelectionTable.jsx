@@ -69,7 +69,7 @@ export default function DataTable({ members, loading }) {
           (mh.assigned === false)   
           // && (mh.area == "Back-End")
           // && (mh.vertical == "Web App")
-          // && (mh.area == "Front-End")
+          // && (mh.area !== "Front-End")
           // && (mh.vertical == "No Code")
           // && (mh.language !== "sPHP") 
           // && (mh.area !== "QA Tester") 
